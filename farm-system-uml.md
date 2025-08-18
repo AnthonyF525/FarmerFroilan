@@ -52,6 +52,13 @@ classDiagram
         -hasBeenFertilized: boolean
     }
     
+    class Shelter~T~ {
+        <<abstract>>
+        -residents: ArrayList~T~
+        +addResident(T resident)
+        +getResidents() ArrayList~T~
+    }
+    
     %% People
     class Person
     class Farmer
@@ -59,7 +66,10 @@ classDiagram
     
     %% Animals
     class Horse
-    class Chicken
+    class Chicken {
+        -hasBeenFertilized: boolean
+        +yield() EdibleEgg
+    }
     
     %% Vehicles
     class Tractor~T~ {
@@ -88,21 +98,15 @@ classDiagram
     }
     
     class Stable~T~ {
-        -animals: List~T~
     }
     
     class ChickenCoop~T~ {
-        -animals: List~T~
     }
     
     class FarmHouse~T~ {
-        -residents: List~T~
     }
     
     class Farm {
-        -stables: List~Stable~Horse~~
-        -chickenCoops: List~ChickenCoop~Chicken~~
-        -farmHouse: FarmHouse~Person~
         -field: Field~Crop~
     }
     
@@ -121,6 +125,11 @@ classDiagram
     
     Tractor~T~ --|> Vehicle
     CropDuster~T~ --|> Vehicle
+    
+    Stable~T~ --|> Shelter~T~
+    ChickenCoop~T~ --|> Shelter~T~
+    FarmHouse~T~ --|> Shelter~T~
+    Farm --|> Shelter~Object~
     
     Crop~T~ --|> Produce~T~
     
@@ -143,14 +152,9 @@ classDiagram
     
     %% Composition
     Farm --* Field~Crop~
-    Farm --* Stable~Horse~
-    Farm --* ChickenCoop~Chicken~
-    Farm --* FarmHouse~Person~
     Field~T~ --* CropRow~T~
     CropRow~T~ --* Crop~T~
-    Stable~T~ --* Animal
-    ChickenCoop~T~ --* Animal
-    FarmHouse~T~ --* Person
+    Shelter~T~ --* T
 ```
 
 ## Streamlined Design Features:
@@ -166,6 +170,7 @@ classDiagram
 2. **Consolidated vehicle hierarchy** - Simplified to core functionality
 3. **Streamlined relationships** - Used composition (--*) for stronger ownership
 4. **Essential attributes only** - Key fields like `hasBeenHarvested`, `hasBeenFertilized`
+5. **Conditional Production** - `Chicken` yields `EdibleEgg` only when `hasBeenFertilized` is false
 
 ### **Generic Benefits:**
 - `Produce<T>` ensures type-safe yielding
