@@ -25,11 +25,11 @@ public class Farm {
         this.farmhouse = farmHouse;
     }
 
-    public String getField() {
+    public Field getField() {
         return field;
     }
 
-    public String getStables() {
+    public List<Stable> getStables() {
         return stables;
     }
 
@@ -37,11 +37,11 @@ public class Farm {
         return chickenCoops;
     }
 
-    public String getFarmHouse() {
+    public FarmHouse getFarmHouse() {
         return farmhouse;
     }
 
-    public List<FarmVehicle> getFarmVehicles() {
+    public List<Vehicle> getFarmVehicles() {
         return farmVehicles;
     }
 
@@ -50,10 +50,10 @@ public class Farm {
     }
 
     public void addStable(Stable stable) {
-        Stables.add(stable);
+        stables.add(stable);
     }
 
-    public void addChickenCoop(ChickenCoop coop) {
+    public void addChickenCoops (ChickenCoop coop) {
         chickenCoops.add(coop);
     }
 
@@ -62,7 +62,47 @@ public class Farm {
     }
 
     public void addAircraft(Aircraft aircraft) {
-        aircraft.add(Aircraft);
+        this.aircraft.add(aircraft);
     }
-    
-}
+
+    public List<Edible> getHarvestedProduce() {
+        return harvestedProduce;
+    }
+
+    public void addToHarvestedProduce(Edible item) {
+        harvestedProduce.add(item);
+    }
+
+    public void clearHarvestedProduce() {
+        harvestedProduce.clear();
+    }
+
+    public String getAllAnimals() {
+        int totalCount = 0;
+        for (Stable stable : stables) {
+            totalCount += stable.getHorses().size();
+        }
+
+        for (ChickenCoop coop : chickenCoops) {
+            totalCount += coop.getChickens().size();
+        }
+
+        return "Total Animals: " + totalCount;
+    }
+
+    public String getAllPeople() {
+        int totalCount = farmhouse.getPeople().size();
+        return "Total People: " + totalCount;
+        
+    }
+
+    public String getAllCrops() {
+        int totalCount = 0;
+        for (CropRow row : field.getCropRows()) {
+            totalCount += row.getCrops().size();
+        }
+        return "Total Crops: " + totalCount;
+    }
+}   
+
+
