@@ -1,7 +1,6 @@
 package com.zipcodewilmington.froilansfarm.interfaces;
 
-import com.zipcodewilmington.froilansfarm.interfaces.*;
-import com.zipcodewilmington.froilansfarm.model.CropRow;
+import com.zipcodewilmington.froilansfarm.structures.*;
 import com.zipcodewilmington.froilansfarm.model.Tractor;
 
 // An object that can plant and harvest crops.
