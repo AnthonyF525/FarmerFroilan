@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.InterfaceTests;
 
-//import com.zipcodewilmington.froilansfarm.model.EdibleEgg;
+import com.zipcodewilmington.froilansfarm.model.EdibleEgg;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
 public class EdibleTest {

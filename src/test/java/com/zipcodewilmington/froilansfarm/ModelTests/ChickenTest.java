@@ -2,7 +2,7 @@ package com.zipcodewilmington.froilansfarm.ModelTests;
 
 import com.zipcodewilmington.froilansfarm.model.Chicken;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
-//import com.zipcodewilmington.froilansfarm.model.EdibleEgg;
+import com.zipcodewilmington.froilansfarm.model.EdibleEgg;
 
 public class ChickenTest {
     public static void main(String[] args) {

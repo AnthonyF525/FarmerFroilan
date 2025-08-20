@@ -12,23 +12,30 @@ import java.util.List;
  */
 public class FarmSimulation {
     private final Farm farm;
-    private final Farmer froilan;      // Farmer
-    private final Pilot froilanda;     // Pilot
+    private final Farmer froilan; // Farmer
+    private final Pilot froilanda; // Pilot
     private final Tractor tractor;
     private final CropDuster cropDuster;
     private final Market market;
     private final List<Edible> harvestedProduce = new ArrayList<>();
 
     public FarmSimulation(Farm farm, Farmer froilan, Pilot froilanda,
-                          Tractor tractor, CropDuster cropDuster, Market market) {
+            Tractor tractor, CropDuster cropDuster, Market market) {
         this.farm = farm;
         this.froilan = froilan;
         this.froilanda = froilanda;
         this.tractor = tractor;
         this.cropDuster = cropDuster;
         this.market = market;
-    }
 
+        Field field = farm.getField();
+        if (field.getCropRows().isEmpty()) {
+            field.addCropRow(new CropRow("Row 1")); 
+            field.addCropRow(new CropRow("Row 2")); 
+            field.addCropRow(new CropRow("Row 3")); 
+            System.out.println("Initialized the field with 3 empty crop rows.");
+        }
+    }
 
     // Shared morning routine
     public void runMorningRoutine() {
@@ -37,9 +44,11 @@ public class FarmSimulation {
         // Ride & feed horses
         for (Stable stable : farm.getStables()) {
             for (Horse horse : stable.getHorses()) {
-                froilan.takeLeisureRide(horse);
+                System.out.println("Froilan is riding " + horse.getName());
+                froilan.ride(horse);
 
-                froilanda.takeLeisureRide(horse);
+                System.out.println("Froilanda is riding " + horse.getName());
+                froilanda.ride(horse);
 
                 System.out.println("Feeding " + horse.getName() + " with 3 ears of corn...");
                 for (int i = 0; i < 3; i++) {
@@ -80,27 +89,29 @@ public class FarmSimulation {
     // Sunday: Plant crops (Froilan only)
     public void runSunday() {
         runMorningRoutine();
-    
+        runBreakfastRoutine();
+
         System.out.println("\n--- Sunday: Planting ---");
 
         Field field = farm.getField();
         System.out.println("Froilan is planting crops...");
-        field.getCropRow(0).plant(new CornStalk());
-        field.getCropRow(1).plant(new TomatoPlant());
-        field.getCropRow(2).plant(new GenericCrop());
+        froilan.plant(new CornStalk("Corn Stalk"), field.getCropRow(0));
+        froilan.plant(new TomatoPlant("Tomato Plant"), field.getCropRow(1));
+        froilan.plant(new GenericCrop("Generic Crop"), field.getCropRow(2));
         System.out.println("Sunday's planting complete.");
     }
 
     // Monday: Froilanda fertilizes crops
     public void runMonday() {
         runMorningRoutine();
-        
+        runBreakfastRoutine();
+
         System.out.println("\n--- Monday: Fertilizing ---");
 
         System.out.println("Froilanda is flying the crop duster...");
-        froilanda.fly(cropDuster);
+        cropDuster.fly();
         for (CropRow row : farm.getField().getCropRows()) {
-            froilanda.fertilize(cropDuster, row);
+            cropDuster.fertilize(row);
         }
         System.out.println("Monday's fertilizing complete.");
     }
@@ -108,13 +119,14 @@ public class FarmSimulation {
     // Tuesday: Froilan harvests
     public void runTuesday() {
         runMorningRoutine();
-    
+        runBreakfastRoutine();
+
         System.out.println("\n--- Tuesday: Harvesting ---");
 
         System.out.println("Froilan is harvesting crops with the tractor...");
         for (CropRow row : farm.getField().getCropRows()) {
-            List<Edible> yield = froilan.harvest(tractor, row);
-            harvestedProduce.addAll(yield);
+            TomatoPlant tomato = new TomatoPlant("Tomato Plant");
+            froilan.harvest(tractor, tomato);
         }
         System.out.println("Tuesday's harvesting complete.");
     }
@@ -122,7 +134,8 @@ public class FarmSimulation {
     // Wednesday: Animal care
     public void runWednesday() {
         runMorningRoutine();
-    
+        runBreakfastRoutine();
+
         System.out.println("\n--- Wednesday: Animal Care ---");
 
         for (Stable stable : farm.getStables()) {
@@ -144,7 +157,8 @@ public class FarmSimulation {
     // Thursday: Maintenance
     public void runThursday() {
         runMorningRoutine();
-    
+        runBreakfastRoutine();
+
         System.out.println("\n--- Thursday: Maintenance ---");
 
         Field field = farm.getField();
@@ -159,10 +173,11 @@ public class FarmSimulation {
     // Friday: Market day
     public void runFriday() {
         runMorningRoutine();
-    
+        runBreakfastRoutine();
+
         System.out.println("\n--- Friday: Market Day ---");
 
-        market.sellProduce(harvestedProduce);
+        Market.sellProduce(harvestedProduce);
         harvestedProduce.clear();
 
         System.out.println("Friday's market day complete.");
@@ -171,7 +186,8 @@ public class FarmSimulation {
     // Saturday: Rest & leisure
     public void runSaturday() {
         runMorningRoutine();
-    
+        runBreakfastRoutine();
+
         System.out.println("\n--- Saturday: Rest & Leisure ---");
 
         if (!farm.getStables().isEmpty() && !farm.getStables().get(0).getHorses().isEmpty()) {
@@ -181,9 +197,21 @@ public class FarmSimulation {
         }
 
         System.out.println("For dinner, Froilan and Froilanda are eating fresh eggs.");
-        for (int i = 0; i < 2; i++) froilan.eat(new EdibleEgg());
-        for (int i = 0; i < 2; i++) froilanda.eat(new EdibleEgg());
+        for (int i = 0; i < 2; i++)
+            froilan.eat(new EdibleEgg());
+        for (int i = 0; i < 2; i++)
+            froilanda.eat(new EdibleEgg());
 
         System.out.println("Saturday's rest and leisure complete.");
+    }
+
+    public void runWeek() {
+        runSunday();
+        runMonday();
+        runTuesday();
+        runWednesday();
+        runThursday();
+        runFriday();
+        runSaturday();
     }
 }

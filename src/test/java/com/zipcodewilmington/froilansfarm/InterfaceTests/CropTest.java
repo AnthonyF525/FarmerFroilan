@@ -3,7 +3,7 @@ package com.zipcodewilmington.froilansfarm.InterfaceTests;
 
 import com.zipcodewilmington.froilansfarm.interfaces.Crop;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
-//import com.zipcodewilmington.froilansfarm.model.CornStalk;
+import com.zipcodewilmington.froilansfarm.model.CornStalk;
 
 public class CropTest {
     public static void main(String[] args) {

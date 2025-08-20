@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.ModelTests;
 
 import com.zipcodewilmington.froilansfarm.model.Person;
+import com.zipcodewilmington.froilansfarm.model.Tomato;
 
 public class PersonTest {
     public static void main(String[] args) {

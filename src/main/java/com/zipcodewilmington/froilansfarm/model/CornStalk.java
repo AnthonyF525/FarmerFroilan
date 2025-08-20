@@ -3,10 +3,15 @@ package com.zipcodewilmington.froilansfarm.model;
 import com.zipcodewilmington.froilansfarm.interfaces.Crop;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
-public class CornStalk implements Crop {
+public class CornStalk extends LivingEntity implements Crop {
     private boolean hasBeenFertilized = false;
     private boolean hasBeenHarvested = false;
     
+
+    public CornStalk(String name) {
+        super(name);
+    }
+
     @Override
     public Edible yieldProduce() {
         if (hasBeenFertilized && !hasBeenHarvested) {
@@ -34,11 +39,6 @@ public class CornStalk implements Crop {
     @Override
     public boolean isHasBeenHarvested() {
         return hasBeenHarvested;
-    }
-
-    @Override
-    public String getName() {
-        return "Corn Stalk";
     }
     
     @Override
