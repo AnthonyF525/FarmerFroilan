@@ -1,5 +1,5 @@
 package com.zipcodewilmington.froilansfarm.people;
 
-public class Farmer {
-    
+public Farmer(String name) {
+    super(name);
 }
