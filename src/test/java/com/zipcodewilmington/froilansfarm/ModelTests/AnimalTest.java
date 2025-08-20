@@ -1,8 +1,7 @@
 package com.zipcodewilmington.froilansfarm.ModelTests;
 
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.model.Animal;
-//import com.zipcodewilmington.froilansfarm.model.EarCorn;
+import com.zipcodewilmington.froilansfarm.model.EarCorn;
 
 public class AnimalTest {
     public static void main(String[] args) {

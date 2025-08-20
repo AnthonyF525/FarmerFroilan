@@ -1,7 +1,7 @@
 package com.zipcodewilmington.froilansfarm.InterfaceTests;
 
 import com.zipcodewilmington.froilansfarm.interfaces.Eater;
-//import com.zipcodewilmington.froilansfarm.model.EarCorn;
+import com.zipcodewilmington.froilansfarm.model.EarCorn;
 import com.zipcodewilmington.froilansfarm.model.Person;
 
 public class EaterTest {

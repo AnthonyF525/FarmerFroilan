@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.PeopleTests;
 
-//import com.zipcodewilmington.froilansfarm.model.CornStalk;
+import com.zipcodewilmington.froilansfarm.model.CornStalk;
 import com.zipcodewilmington.froilansfarm.people.Farmer;
 import com.zipcodewilmington.froilansfarm.model.Horse;
 import com.zipcodewilmington.froilansfarm.structures.CropRow;
