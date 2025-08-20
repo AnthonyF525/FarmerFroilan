@@ -2,7 +2,7 @@ package com.zipcodewilmington.froilansfarm.people;
 
 import com.zipcodewilmington.froilansfarm.model.Person;
 import com.zipcodewilmington.froilansfarm.interfaces.Crop;
-import com.zipcodewilmington.froilansfarm.model.CropRow;
+import com.zipcodewilmington.froilansfarm.structures.CropRow;
 import com.zipcodewilmington.froilansfarm.model.Tractor;
 import com.zipcodewilmington.froilansfarm.model.Horse;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
