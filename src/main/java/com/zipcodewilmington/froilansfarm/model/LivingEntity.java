@@ -1,12 +1,17 @@
 package com.zipcodewilmington.froilansfarm.model;
 
-abstract class LivingEntity {
+// LivingEntity is a base class for all living entities on the farm.
+public abstract class LivingEntity {
+
+    // Name of the living entity
     protected String name;
 
+    // Constructor
     public LivingEntity(String name) {
         this.name = name;
     }
 
+    // Getter for name
     public String getName() {
         return name;
     }
