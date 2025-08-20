@@ -12,7 +12,7 @@ public class Tractor extends Vehicle {
 
     @Override
     public void makeNoise() {
-        System.out.println("The " + name + " is making whirling. ");
+        System.out.println("The " + name + " is making humming. ");
     }
 
     public Edible harvest(Crop crop) {
