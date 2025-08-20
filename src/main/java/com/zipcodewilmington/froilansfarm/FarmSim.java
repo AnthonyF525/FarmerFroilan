@@ -4,12 +4,12 @@ public class FarmSim {
 
     private final Farm farm;
     private final Farmer froilan;
-    private final Farmer froilanda;
+    private final  Pilot froilanda;
 
     public FarmSimulation() {
         this.farm = FarmFactory.createFroilanFarm();
         this.froilan = farm.getFarmHouse().getFarmerByName("Froilan");
-        this.froilanda = farm.getFarmHouse().getFarmerByName("Froilanda");
+        this.froilanda = farm.getFarmHouse().getPilotByName("Froilanda");
     }
 
     public Farm getFarm() {
