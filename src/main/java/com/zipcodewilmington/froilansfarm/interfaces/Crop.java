@@ -8,4 +8,6 @@ public interface Crop extends Produce {
     boolean isHasBeenHarvested();
     void setHasBeenHarvested(boolean b);
     void fertilize();
+
+    String getName();
 }

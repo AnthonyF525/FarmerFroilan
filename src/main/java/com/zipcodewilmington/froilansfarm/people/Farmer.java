@@ -8,7 +8,6 @@ import com.zipcodewilmington.froilansfarm.model.Horse;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 import com.zipcodewilmington.froilansfarm.interfaces.Botanist;
-import com.zipcodewilmington.froilansfarm.interfaces.*;
 
 
 // Farmer class implements Rider and Botanist interfaces.
