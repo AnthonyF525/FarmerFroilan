@@ -8,9 +8,9 @@ public class EdibleTest {
         System.out.println("\n--- Testing Edible Interface ---");
         Edible egg = new EdibleEgg();
         
-        // An Edible must have a name and calories
+        // An Edible must have a name and nutritional value
         System.out.println("Edible name: " + egg.getName());
-        System.out.println("Edible calories: " + egg.getCalories());
+        System.out.println("Edible nutritional value: " + egg.getNutritionalValue());
         System.out.println("Edible interface test complete.");
     }
 }
