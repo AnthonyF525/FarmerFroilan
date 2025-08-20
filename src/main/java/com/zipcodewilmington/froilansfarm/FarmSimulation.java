@@ -37,11 +37,9 @@ public class FarmSimulation {
         // Ride & feed horses
         for (Stable stable : farm.getStables()) {
             for (Horse horse : stable.getHorses()) {
-                System.out.println("Froilan is riding " + horse.getName());
-                froilan.ride(horse);
+                froilan.takeLeisureRide(horse);
 
-                System.out.println("Froilanda is riding " + horse.getName());
-                froilanda.ride(horse);
+                froilanda.takeLeisureRide(horse);
 
                 System.out.println("Feeding " + horse.getName() + " with 3 ears of corn...");
                 for (int i = 0; i < 3; i++) {
@@ -134,7 +132,7 @@ public class FarmSimulation {
             }
         }
 
-        for (ChickenCoop coop : farm.getChickenCoops()) {
+        for (ChickenCoop coop : farm.getChickenCoop()) {
             coop.cleanStructure();
             for (Chicken chicken : coop.getChickens()) {
                 chicken.checkHealth();
