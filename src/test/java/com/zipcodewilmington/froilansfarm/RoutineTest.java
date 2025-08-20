@@ -3,6 +3,10 @@ package com.zipcodewilmington.froilansfarm;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import com.zipcodewilmington.froilansfarm.people.Farmer;
+import com.zipcodewilmington.froilansfarm.people.Pilot;
+
+
 public class RoutineTest {
 
     void morningRoutine(Farm farm, Farmer froilan, Pilot froilanda) {
