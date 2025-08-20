@@ -24,6 +24,10 @@ public class Stable {
         return horses;
     }
 
+    public void cleanStructure() {
+        System.out.println("Stables are being cleaned.");
+    }
+
 
 
 }
