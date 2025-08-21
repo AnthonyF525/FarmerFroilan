@@ -238,4 +238,14 @@ class FarmSimulation {
         
         System.out.println("Saturday's rest and recreation complete.");
     }
+
+    public void runWeek() {
+        runSunday();
+        runMonday();
+        runTuesday();
+        runWednesday();
+        runThursday();
+        runFriday();
+        runSaturday();
+    }
 }
