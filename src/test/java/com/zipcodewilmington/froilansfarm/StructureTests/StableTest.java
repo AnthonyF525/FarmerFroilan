@@ -1,23 +1,27 @@
 package com.zipcodewilmington.froilansfarm.StructureTests;
 
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import com.zipcodewilmington.froilansfarm.structures.Stable;
 import com.zipcodewilmington.froilansfarm.model.Horse;
 
 public class StableTest {
-    public static void main(String[] args) {
+    
+    @Test
+    public void testStableOperations() {
         System.out.println("\n--- Testing Stable Class ---");
         Stable stable = new Stable("Main Stable");
         
-        // Test basic operations
-        System.out.println("Stable name: " + stable.getName());
+        assertNotNull(stable, "Stable should be created");
+        assertEquals("Main Stable", stable.getName(), "Stable name should match");
+        assertEquals(0, stable.getHorses().size(), "Stable should start empty");
         
-        // Add horses (assuming Horse class exists)
-        // Horse horse1 = new Horse("Thunder");
-        // stable.addHorse(horse1);
+        // Test adding horses
+        Horse horse1 = new Horse("Thunder");
+        stable.addHorse(horse1);
+        assertEquals(1, stable.getHorses().size(), "Should have 1 horse after adding");
         
-        System.out.println("Number of horses: " + stable.getHorses().size());
         stable.cleanStructure();
-        
         System.out.println("Stable test complete.");
     }
 }
