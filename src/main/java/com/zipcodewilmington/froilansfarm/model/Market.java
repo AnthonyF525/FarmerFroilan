@@ -12,12 +12,13 @@ public class Market {
     private static final int TOMATO_PRICE = 1;
     
     // Static methods for buying/selling
-    public static int sellProduce(List<Edible> items) {
-        int totalValue = 0;
+    public void sellProduce(List<Edible> items) {
+        System.out.println("The market is selling the following produce:");
+
         for (Edible item : items) {
-            totalValue += getPrice(item);
+            System.out.println(item.getName());
         }
-        return totalValue;
+        System.out.println("Produce sold successfully!");
     }
 
     public static int sellAnimal(String animalType) {
