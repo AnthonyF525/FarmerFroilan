@@ -38,6 +38,6 @@ public class ChickenCoop {
     }
     
     public void cleanStructure() {
-        System.out.println("Coop is being cleaned.");
+        System.out.println(this.name + " is being cleaned....");
     }
 }

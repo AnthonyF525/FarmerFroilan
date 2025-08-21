@@ -9,11 +9,11 @@ public class Main {
     public static void main(String[] args) {
 
         FarmSimulation simulation = new FarmSimulation();
-        // simulation.runWeek();
+        simulation.runWeek();
 
-        // simulation.runSunday();
-        // simulation.runMonday();
-        // simulation.runTuesday();
+       //simulation.runSunday();
+        //simulation.runMonday();
+         //simulation.runTuesday();
         // simulation.runWednesday();
         // simulation.runThursday();
         // simulation.runFriday();

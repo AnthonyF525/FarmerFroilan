@@ -11,13 +11,13 @@ public class CropDuster extends Aircraft {
     
     @Override
     public void makeNoise() {
-        System.out.println("The " + name + " is whirling. ");
+        System.out.println(name + " is whirling! ");
     }
 
     public void fertilize(CropRow cropRow) {
         for (Crop crop : cropRow.getCrops()) {
             crop.fertilize();
         }
-        System.out.println("The " + cropRow.getName() + " has been fertilized. ");
+        System.out.println(cropRow.getName() + " has been fertilized! ");
     }
 }

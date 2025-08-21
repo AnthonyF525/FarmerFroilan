@@ -7,7 +7,7 @@ import com.zipcodewilmington.froilansfarm.model.Horse;
 public class Stable {
     private String name;
     private List<Horse> horses = new ArrayList<>();
-    
+
     public Stable(String name) {
         this.name = name;
     }
@@ -25,9 +25,7 @@ public class Stable {
     }
 
     public void cleanStructure() {
-        System.out.println("Stables are being cleaned.");
+        System.out.println(this.name + " is being cleaned....");
     }
-
-
 
 }

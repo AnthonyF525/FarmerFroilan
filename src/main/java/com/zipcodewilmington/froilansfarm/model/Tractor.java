@@ -22,7 +22,7 @@ public class Tractor extends Vehicle implements FarmVehicle {
 
     public Edible harvest(Crop crop) {
         Edible harvestedItem = crop.yieldProduce();
-        System.out.println(crop.getName() + "was harvested. ");
+        System.out.println(crop.getName() + " was harvested.");
         return harvestedItem;
 
     }

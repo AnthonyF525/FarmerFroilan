@@ -13,17 +13,15 @@ public class Horse extends Animal implements Rideable {
     // Override makeNoise method from Animal class
     @Override
     public void makeNoise() {
-        System.out.println("The horse, " + this.name + ", is neighing.");
+        System.out.println( this.name + ", is neighing!");
     }
 
     // Implement mount and dismount methods from Rideable interface
     @Override
-    public void mount() {
-        System.out.println("The horse, " + this.name + ", has been mounted.");
+    public void mount() {;
     }
 
     @Override
-    public void dismount() {
-        System.out.println("The horse, " + this.name + ", has been dismounted.");
+    public void dismount() {;
     }
 }

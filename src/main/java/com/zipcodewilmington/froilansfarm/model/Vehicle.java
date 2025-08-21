@@ -21,17 +21,17 @@ public class Vehicle implements NoiseMaker, Rideable {
     // Implement mount and dismount methods from Rideable interface
     @Override
     public void mount() {
-        System.out.println("Someone is mounting the vehicle," + name);
+        System.out.println(" is mounting the vehicle, " + name);
     }
 
     // Implement dismount method from Rideable interface
     @Override
     public void dismount() {
-        System.out.println("Someone is dismounting the vehicle," + name);
+        System.out.println(" is dismounting the vehicle," + name);
     }
 
     // Vehicle-specific method
     public void performMaintenance() {
-        System.out.println("The vehicle, " + this.name + ", is undergoing maintenance.");
+        System.out.println(this.name + " is undergoing maintenance.");
     }
 }

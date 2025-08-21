@@ -19,7 +19,7 @@ public class Chicken extends Animal implements Produce {
     // Implement makeNoise method from NoiseMaker interface
     @Override
     public void makeNoise() {
-        System.out.println("The chicken, " + this.name + ", is clucking.");
+        System.out.println(this.name + ", is clucking!");
     }
 
     // Implement yieldProduce method from Produce interface

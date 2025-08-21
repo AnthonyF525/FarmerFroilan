@@ -10,7 +10,7 @@ public class Aircraft extends Vehicle {
 
     // Aircraft-specific methods
     public void fly() {
-        System.out.println(" The " + name + " is taking off ");
+        System.out.println(name + " is taking off ");
     }
 
     // Override makeNoise method from Vehicle class
