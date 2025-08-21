@@ -18,4 +18,8 @@ public class Aircraft extends Vehicle {
     public void makeNoise() {
         System.out.println("The " + name + " is humming. ");
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
