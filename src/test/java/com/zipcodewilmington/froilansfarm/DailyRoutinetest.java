@@ -27,6 +27,12 @@ public class DailyRoutinetest {
         System.setOut(new PrintStream(output));
 
         Field field = new Field("Field");
+
+         field.addCropRow(new CropRow("Row 1")); // Add CropRow at index 0 (first row).
+        field.addCropRow(new CropRow("Row 2")); // Add CropRow at index 1 (second row).
+        field.addCropRow(new CropRow("Row 3")); // Add CropRow at index 2 (third row).
+        field.addCropRow(new CropRow("Row 4")); // Add CropRow at index 3 (fourth row) — required for Thursday maintenance.
+        field.addCropRow(new CropRow("Row 5")); // Add CropRow at index 4 (fifth row) — also required by Thursday maintenance.
         FarmHouse farmHouse = new FarmHouse("FarmHouse");
         farm = new Farm(field, farmHouse);
 
