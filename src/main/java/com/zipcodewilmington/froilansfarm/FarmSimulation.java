@@ -16,8 +16,8 @@ class FarmSimulation {
 
     public FarmSimulation() {
         // Create the people
-        Farmer froilan = new Farmer ("Froilan");
-        Pilot froilanda = new Pilot ("Froilanda");
+        froilan = new Farmer ("Froilan");
+        froilanda = new Pilot ("Froilanda");
 
         // Create the farm structures
         FarmHouse farmHouse = new FarmHouse("Froilan Farmhouse");
@@ -137,6 +137,7 @@ class FarmSimulation {
 
         CropDuster cropDuster = (CropDuster) froilanFarm.getAircraft().get(0);
         cropDuster.fly();
+        cropDuster.makeNoise();
 
         for (CropRow row : froilanFarm.getField().getCropRows()) {
             cropDuster.fertilize(row);
@@ -152,12 +153,14 @@ class FarmSimulation {
 
         Tractor tractor = (Tractor) froilanFarm.getFarmVehicles().get(0);
         tractor.operateOnFarm();
+        tractor.makeNoise();
 
         for (CropRow row : froilanFarm.getField().getCropRows()) {
             for (Crop crop : row.getCrops()) {
-                Edible harvestedItem = crop.yieldProduce();
+                Edible harvestedItem = tractor.harvest(crop);
                 if (harvestedItem != null) {
                     froilanFarm.addToHarvestedProduce(harvestedItem);
+                    
                 }
             }
         }

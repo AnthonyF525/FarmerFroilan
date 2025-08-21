@@ -11,7 +11,7 @@ public class CropDuster extends Aircraft {
     
     @Override
     public void makeNoise() {
-        System.out.println("The " + name + " is making whirling. ");
+        System.out.println("The " + name + " is whirling. ");
     }
 
     public void fertilize(CropRow cropRow) {
