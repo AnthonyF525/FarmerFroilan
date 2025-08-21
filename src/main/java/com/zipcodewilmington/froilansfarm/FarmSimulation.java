@@ -18,15 +18,17 @@ public class FarmSimulation {
     private final CropDuster cropDuster;
     private final Market market;
     private final List<Edible> harvestedProduce = new ArrayList<>();
+    private final Stable stable;
 
     public FarmSimulation(Farm farm, Farmer froilan, Pilot froilanda,
-            Tractor tractor, CropDuster cropDuster, Market market) {
+            Tractor tractor, CropDuster cropDuster, Market market, Stable stable) {
         this.farm = farm;
         this.froilan = froilan;
         this.froilanda = froilanda;
         this.tractor = tractor;
         this.cropDuster = cropDuster;
         this.market = market;
+        this.stable = stable; 
 
         Field field = farm.getField();
         if (field.getCropRows().isEmpty()) {
@@ -89,7 +91,7 @@ public class FarmSimulation {
     // Sunday: Plant crops (Froilan only)
     public void runSunday() {
         runMorningRoutine();
-        runBreakfastRoutine();
+        
 
         System.out.println("\n--- Sunday: Planting ---");
 
@@ -104,7 +106,7 @@ public class FarmSimulation {
     // Monday: Froilanda fertilizes crops
     public void runMonday() {
         runMorningRoutine();
-        runBreakfastRoutine();
+        
 
         System.out.println("\n--- Monday: Fertilizing ---");
 
@@ -119,7 +121,6 @@ public class FarmSimulation {
     // Tuesday: Froilan harvests
     public void runTuesday() {
         runMorningRoutine();
-        runBreakfastRoutine();
 
         System.out.println("\n--- Tuesday: Harvesting ---");
 
@@ -134,7 +135,6 @@ public class FarmSimulation {
     // Wednesday: Animal care
     public void runWednesday() {
         runMorningRoutine();
-        runBreakfastRoutine();
 
         System.out.println("\n--- Wednesday: Animal Care ---");
 
@@ -157,7 +157,6 @@ public class FarmSimulation {
     // Thursday: Maintenance
     public void runThursday() {
         runMorningRoutine();
-        runBreakfastRoutine();
 
         System.out.println("\n--- Thursday: Maintenance ---");
 
@@ -173,7 +172,6 @@ public class FarmSimulation {
     // Friday: Market day
     public void runFriday() {
         runMorningRoutine();
-        runBreakfastRoutine();
 
         System.out.println("\n--- Friday: Market Day ---");
 
@@ -186,7 +184,6 @@ public class FarmSimulation {
     // Saturday: Rest & leisure
     public void runSaturday() {
         runMorningRoutine();
-        runBreakfastRoutine();
 
         System.out.println("\n--- Saturday: Rest & Leisure ---");
 
