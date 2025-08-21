@@ -1,16 +1,34 @@
 package com.zipcodewilmington.froilansfarm.InterfaceTests;
 
-import com.zipcodewilmington.froilansfarm.model.EdibleEgg;
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import com.zipcodewilmington.froilansfarm.model.*;
 
 public class EdibleTest {
-    public static void main(String[] args) {
-        System.out.println("\n--- Testing Edible Interface ---");
-        Edible egg = new EdibleEgg();
+    
+    @Test
+    public void testEdibleItems() {
+        System.out.println("\n--- Testing Edible Classes ---");
         
-        // An Edible must have a name and nutritional value
-        System.out.println("Edible name: " + egg.getName());
-        System.out.println("Edible nutritional value: " + egg.getNutritionalValue());
-        System.out.println("Edible interface test complete.");
+        EdibleEgg egg = new EdibleEgg();
+        EarCorn corn = new EarCorn();
+        Tomato tomato = new Tomato();
+        
+        // Test names
+        assertEquals("Egg", egg.getName(), "Egg name should be correct");
+        assertEquals("Corn", corn.getName(), "Corn name should be correct");
+        assertEquals("Tomato", tomato.getName(), "Tomato name should be correct");
+        
+        // Test nutritional values
+        assertEquals(5, egg.getNutritionalValue(), "Egg nutrition should be 5");
+        assertEquals(4, corn.getNutritionalValue(), "Corn nutrition should be 4");
+        assertEquals(2, tomato.getNutritionalValue(), "Tomato nutrition should be 2");
+        
+        // Test calories
+        assertTrue(egg.getNutritionalValue() > 0, "Egg should have calories");
+        assertTrue(corn.getNutritionalValue() > 0, "Corn should have calories");
+        assertTrue(tomato.getNutritionalValue() > 0, "Tomato should have calories");
+        
+        System.out.println("Edible test complete.");
     }
 }
