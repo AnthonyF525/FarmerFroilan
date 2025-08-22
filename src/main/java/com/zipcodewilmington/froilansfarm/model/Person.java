@@ -7,9 +7,12 @@ import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 // Person is a LivingEntity that can make noise and eat.
 public class Person extends LivingEntity implements NoiseMaker, Eater {
 
-    private static final String ANSI_RESET = "\u001B[0m";
     private static final String ANSI_BLUE = "\u001B[34m";
     private static final String ANSI_MAGENTA = "\u001B[35m";
+    private static final String ANSI_YELLOW = "\u001B[33m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_ORANGE = "\u001B[38;5;208m";
+    private static final String ANSI_RESET = "\u001B[0m";
 
     // Constructor
     public Person(String name) {
@@ -25,29 +28,31 @@ public class Person extends LivingEntity implements NoiseMaker, Eater {
     // Implement eat method from Eater interface
     @Override
     public void eat(Edible food) {
-        String color;
+        String colorName = this.name.equalsIgnoreCase("Froilan") ? ANSI_BLUE : 
+                           this.name.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA : "";
+        String colorFood;
         switch (food.getName()) {
             case "Corn":
-                color = "\u001B[33m"; // Yellow
+                colorFood = ANSI_YELLOW;
                 break;
             case "Tomato":
-                color = "\u001B[31m"; // Red
+                colorFood = ANSI_RED;
                 break;
             case "Egg":
-                color = "\u001B[38;5;208m"; // Orange (256-color)
+                colorFood = ANSI_ORANGE;
                 break;
             default:
-                color = "";
+                colorFood = "";
         }
-        System.out.println(this.name + " is eating " + color + food.getName() + "\u001B[0m" + ".");
+        System.out.println(colorName + this.name + ANSI_RESET + " is eating " + colorFood + food.getName() + ANSI_RESET + ".");
     }
 
     @Override
     public String getName() {
-        if ("Froilan".equals(super.getName())) {
-            return ANSI_BLUE + super.getName() + ANSI_RESET;
-        } else if ("Froilanda".equals(super.getName())) {
-            return ANSI_MAGENTA + super.getName() + ANSI_RESET;
+        if ("Froilanda".equalsIgnoreCase(super.getName())) {
+            return "\u001B[35m" + super.getName() + "\u001B[0m";
+        } else if ("Froilan".equalsIgnoreCase(super.getName())) {
+            return "\u001B[34m" + super.getName() + "\u001B[0m";
         }
         return super.getName();
     }

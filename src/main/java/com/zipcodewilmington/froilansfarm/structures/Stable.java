@@ -25,7 +25,6 @@ public class Stable {
     }
 
     public void cleanStructure() {
-        System.out.println(this.name + " is being cleaned....");
     }
 
 }

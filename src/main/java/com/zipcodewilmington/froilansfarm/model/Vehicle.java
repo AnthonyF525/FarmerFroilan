@@ -4,13 +4,14 @@ import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
 public class Vehicle implements NoiseMaker, Rideable {
-
-    // Name of the vehicle
     protected String name;
 
-    // Constructor
     public Vehicle(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     // Implement makeNoise method from NoiseMaker interface
@@ -31,15 +32,42 @@ public class Vehicle implements NoiseMaker, Rideable {
     }
 
     public void mount(String riderName) {
-        System.out.println(riderName + " mounts the vehicle, " + name);
+        final String ANSI_MAGENTA = "\u001B[35m";
+        final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_RESET = "\u001B[0m";
+        String coloredName = riderName.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA + riderName + ANSI_RESET
+                          : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + riderName + ANSI_RESET
+                          : riderName;
+        String coloredVehicle = riderName.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA + name + ANSI_RESET
+                            : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + name + ANSI_RESET
+                            : name;
+        System.out.println(coloredName + " mounts the vehicle, " + coloredVehicle + ".");
     }
 
     public void dismount(String riderName) {
-        System.out.println(riderName + " dismounts the vehicle, " + name);
+        final String ANSI_MAGENTA = "\u001B[35m";
+        final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_RESET = "\u001B[0m";
+        String coloredName = riderName.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA + riderName + ANSI_RESET
+                      : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + riderName + ANSI_RESET
+                      : riderName;
+        String coloredVehicle = riderName.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA + name + ANSI_RESET
+                        : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + name + ANSI_RESET
+                        : name;
+        System.out.println(coloredName + " dismounts the vehicle, " + coloredVehicle + ".");
     }
 
     // Vehicle-specific method
     public void performMaintenance() {
-        System.out.println(this.name + " is undergoing maintenance.");
+        final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_MAGENTA = "\u001B[35m";
+        final String ANSI_RESET = "\u001B[0m";
+        if (this.name.contains("Froilanda")) {
+            System.out.println(ANSI_MAGENTA + this.name + ANSI_RESET + " is undergoing maintenance.");
+        } else if (this.name.contains("Froilan")) {
+            System.out.println(ANSI_BLUE + this.name + ANSI_RESET + " is undergoing maintenance.");
+        } else {
+            System.out.println(this.name + " is undergoing maintenance.");
+        }
     }
 }

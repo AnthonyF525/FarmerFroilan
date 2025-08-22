@@ -19,6 +19,7 @@ public class Main {
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_BLUE = "\u001B[34m";
     private static final String ANSI_MAGENTA = "\u001B[35m";
+    private static final String ANSI_LIGHT_PURPLE = "\u001B[38;5;183m";
 
     public static void main(String[] args) {
 
@@ -30,7 +31,7 @@ public class Main {
         flushScreen();
         System.out.println();
         System.out.println();
-        System.out.println(ANSI_WHITE + "                            +&-" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "                             +&-" + ANSI_RESET);
         System.out.println(ANSI_WHITE + "                           _.-^-._    .--." + ANSI_RESET);
         System.out.println(ANSI_WHITE + "                        .-'   _   '-. |__|" + ANSI_RESET);
         System.out.println(ANSI_WHITE + "                       /     |_|     \\|  |" + ANSI_RESET);
@@ -40,17 +41,18 @@ public class Main {
         System.out.println(ANSI_WHITE + "  |---|---|---|---|---|    |--|--|    |  |" + ANSI_RESET);
         System.out.println(ANSI_WHITE + "  |---|---|---|---|---|    |==|==|    |  |" + ANSI_RESET);
         System.out.println(ANSI_WHITE + " ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" + ANSI_RESET);
-        System.out.println("\n\n" + ANSI_CYAN + "Welcome To Froilan Farm!" + ANSI_RESET);
-        System.out.println("\n" + ANSI_WHITE + "This farm has the following inventory:" + ANSI_RESET);
-        System.out.println(ANSI_ORANGE + "  * 1 Field" + ANSI_RESET);
-        System.out.println(ANSI_ORANGE + "  * 5 Crop Rows" + ANSI_RESET);
-        System.out.println(ANSI_ORANGE + "  * 4 Chicken Coops" + ANSI_RESET);
-        System.out.println(ANSI_ORANGE + "  * 15 Chickens" + ANSI_RESET);
-        System.out.println(ANSI_ORANGE + "  * 3 Stables" + ANSI_RESET);
-        System.out.println(ANSI_ORANGE + "  * 10 Horses" + ANSI_RESET);
-        System.out.println(ANSI_ORANGE + "  * 2 Farm Vehicles" + ANSI_RESET);
-        System.out.println("\n" + ANSI_BLUE + "Froilan is the Farmer" + ANSI_RESET + " and " + ANSI_MAGENTA + "Froilanda is the Pilot." + ANSI_RESET);
-        System.out.println("\n" + ANSI_CYAN + "Enjoy their weekly routine!" + ANSI_RESET);
+        System.out.println("\n" + ANSI_LIGHT_PURPLE + "Welcome To Froilan Farm!" + ANSI_RESET);
+        System.out.println("\n" + ANSI_WHITE + "This farm has the following:" + ANSI_RESET);
+        System.out.println();
+        System.out.println("  * " + ANSI_ORANGE + "1" + ANSI_RESET + " Field");
+        System.out.println("  * " + ANSI_ORANGE + "5" + ANSI_RESET + " Crop Rows");
+        System.out.println("  * " + ANSI_ORANGE + "4" + ANSI_RESET + " Chicken Coops");
+        System.out.println("  * " + ANSI_ORANGE + "15" + ANSI_RESET + " Chickens");
+        System.out.println("  * " + ANSI_ORANGE + "3" + ANSI_RESET + " Stables");
+        System.out.println("  * " + ANSI_ORANGE + "10" + ANSI_RESET + " Horses");
+        System.out.println("  * " + ANSI_ORANGE + "2" + ANSI_RESET + " Farm Vehicles");
+        System.out.println("\n" + ANSI_BLUE + "Froilan " + ANSI_RESET + "is the Farmer" + " and " + ANSI_MAGENTA + "Froilanda " + ANSI_RESET + "is the Pilot.");
+        System.out.println("\n" + ANSI_LIGHT_PURPLE + "Enjoy their weekly routine!" + ANSI_RESET);
         System.out.println("\n\n" + ANSI_WHITE + "--- Press Enter to begin the week ---" + ANSI_RESET);
         scanner.nextLine();
 
@@ -92,8 +94,22 @@ public class Main {
         simulation.runSaturday();
         System.out.println("\n--- Press Enter to end the week ---");
         scanner.nextLine();
-        scanner.nextLine();
 
+                flushScreen();
+        System.out.println();
+        System.out.println();
+        System.out.println(ANSI_WHITE + "                             +&-" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "                           _.-^-._    .--." + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "                        .-'   _   '-. |__|" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "                       /     |_|     \\|  |" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "                      /               \\  |" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "                     /|     _____     |\\ |" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "                      |    |==|==|    |  |" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "  |---|---|---|---|---|    |--|--|    |  |" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "  |---|---|---|---|---|    |==|==|    |  |" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + " ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" + ANSI_RESET);
+        System.out.println("\n\n" + ANSI_LIGHT_PURPLE + "Thanks for visiting the farm!" + ANSI_RESET);
+        scanner.nextLine();
         scanner.close();
     }
 

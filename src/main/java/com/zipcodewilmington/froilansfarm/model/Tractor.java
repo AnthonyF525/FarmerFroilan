@@ -13,21 +13,45 @@ public class Tractor extends Vehicle implements FarmVehicle {
 
     @Override
     public void operateOnFarm() {
-        System.out.println("The tractor is operating on the farm.");
+        final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_RESET = "\u001B[0m";
+        if (name.equalsIgnoreCase("Froilan's Tractor")) {
+            System.out.println(ANSI_BLUE + "Froilan's tractor" + ANSI_RESET + " is operating on the farm!");
+        } else {
+            System.out.println(name + " is operating on the farm!");
+        }
     }
 
+    @Override
     public void makeNoise() {
-        System.out.println("The " + name + " is humming. ");
+        final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_RESET = "\u001B[0m";
+        if (name.contains("Froilan")) {
+            System.out.println(ANSI_BLUE + "Froilan's Tractor" + ANSI_RESET + " is humming.");
+        } else {
+            System.out.println("The " + name + " is humming. ");
+        }
     }
 
     public Edible harvest(Crop crop) {
         Edible harvestedItem = crop.yieldProduce();
-        System.out.println(crop.getName() + " was harvested.");
         return harvestedItem;
 
     }
 
     public void prepareRow(CropRow cropRow) {
         System.out.println("The " + cropRow.getName() + " is ready for sowing!");
+    }
+
+    public void loadHarvestedProduce() {
+        final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_MAGENTA = "\u001B[35m";
+        final String ANSI_WHITE = "\u001B[37m";
+        final String ANSI_RESET = "\u001B[0m";
+        System.out.println(
+            ANSI_BLUE + "Froilan" + ANSI_RESET + " and " +
+            ANSI_MAGENTA + "Froilanda" + ANSI_RESET + ANSI_WHITE +
+            " are loading up the harvested produce." + ANSI_RESET
+        );
     }
 }

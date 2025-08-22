@@ -19,17 +19,21 @@ public class Chicken extends Animal implements Produce {
     // Implement makeNoise method from NoiseMaker interface
     @Override
     public void makeNoise() {
-        System.out.println(this.name + ", is clucking!");
+        final String ANSI_BROWN = "\u001B[38;5;94m";
+        final String ANSI_RESET = "\u001B[0m";
+        System.out.println(ANSI_BROWN + this.name + ANSI_RESET + ", is clucking!");
     }
 
     // Implement yieldProduce method from Produce interface
     @Override
     public Edible yieldProduce() {
+        final String ANSI_BROWN = "\u001B[38;5;94m";
+        final String ANSI_RESET = "\u001B[0m";
         if (!hasBeenFertilized) {
-            System.out.println("The chicken, " + this.name + ", lays an egg.");
+            System.out.println("The chicken, " + ANSI_BROWN + this.name + ANSI_RESET + ", lays an egg.");
             return new EdibleEgg();
         } else {
-            System.out.println("The chicken, " + this.name + ", lays an unedible fertilized egg.");
+            System.out.println("The chicken, " + ANSI_BROWN + this.name + ANSI_RESET + ", lays an unedible fertilized egg.");
             return null;
         }
     }

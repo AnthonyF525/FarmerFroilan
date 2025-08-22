@@ -48,7 +48,10 @@ public class Market {
             System.out.println("  Sold " + count + " " + colorName + " for $" + price);
         }
 
-        System.out.println("\nSale Completed!");
+        final String BRIGHT_GREEN = "\u001B[38;5;46m";
+        final String ANSI_RESET = "\u001B[0m";
+        System.out.println(BRIGHT_GREEN + "Sale Completed!" + ANSI_RESET);
+        ;
         int totalSales = calculateTotalSales(produceList);
         System.out.printf("\nTOTAL ITEMS SOLD: %d%n", produceList.size());
         System.out.printf("\nTOTAL SALES: $%d%n", totalSales);
