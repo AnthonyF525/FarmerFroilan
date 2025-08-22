@@ -369,7 +369,6 @@ class FarmSimulation {
             CropRow row4 = froilanFarm.getField().getCropRows().get(3); // index 3 = CropRow 4
             CropRow row5 = froilanFarm.getField().getCropRows().get(4); // index 4 = CropRow 5
             tractor.prepareRow(row4);
-            System.out.println();
             tractor.prepareRow(row5);
             System.out.println();
         }
