@@ -14,13 +14,18 @@ public class GenericCrop extends LivingEntity implements Crop {
 
     @Override
     public Edible yieldProduce() {
-        if (hasBeenFertilized && !hasBeenHarvested) {
-            this.hasBeenHarvested = true;
-            return new Tomato(); // Yielding a generic edible item
-        } else {
-            System.out.println("This crop cannot be harvested yet.");
-            return null;
-        }
+
+        // Return an anonymous Edible with name "Vegetation"
+        return new Edible() {
+            @Override
+            public String getName() {
+                return "Vegetation";
+            }
+            @Override
+            public int getNutritionalValue() {
+                return 1; // or any value you want
+            }
+        };
     }
 
     @Override
