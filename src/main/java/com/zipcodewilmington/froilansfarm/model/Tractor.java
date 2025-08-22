@@ -17,7 +17,7 @@ public class Tractor extends Vehicle implements FarmVehicle {
     }
 
     public void makeNoise() {
-        System.out.println("The " + name + " is making humming. ");
+        System.out.println("The " + name + " is humming. ");
     }
 
     public Edible harvest(Crop crop) {
