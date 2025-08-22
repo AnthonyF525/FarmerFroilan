@@ -19,10 +19,19 @@ public class Market {
     private static final String ANSI_YELLOW = "\u001B[33m";
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_ORANGE = "\u001B[38;5;208m";
+    final String BRIGHT_GREEN = "\u001B[38;5;46m";
 
     // Static methods for buying/selling
     public void sellProduce(List<Edible> produceList) {
-        System.out.println("Selling items...");
+        System.out.println("Items for sale: " + ANSI_YELLOW + "Corn" + ANSI_RESET + ", " + ANSI_RED + "Tomato"
+                + ANSI_RESET + ", and " + ANSI_GREEN + "Vegetation" + ANSI_RESET);
+        System.out.println();
+        System.out.println(ANSI_ORANGE + "Selling produce to locals..." + ANSI_RESET);
+        System.out.println();
+        System.out.println(BRIGHT_GREEN + "Sales Completed!" + ANSI_RESET);
+        System.out.println();
+        System.out.println("Items sold today:");
         Map<String, Integer> itemCounts = new HashMap<>();
         for (Edible item : produceList) {
             itemCounts.put(item.getName(), itemCounts.getOrDefault(item.getName(), 0) + 1);
@@ -47,14 +56,10 @@ public class Market {
             int price = getPrice(itemName) * count;
             System.out.println("  Sold " + count + " " + colorName + " for $" + price);
         }
-
-        final String BRIGHT_GREEN = "\u001B[38;5;46m";
-        final String ANSI_RESET = "\u001B[0m";
-        System.out.println(BRIGHT_GREEN + "Sale Completed!" + ANSI_RESET);
-        ;
+        System.out.println();
         int totalSales = calculateTotalSales(produceList);
-        System.out.printf("\nTOTAL ITEMS SOLD: %d%n", produceList.size());
-        System.out.printf("\nTOTAL SALES: $%d%n", totalSales);
+        System.out.printf("TOTAL ITEMS SOLD: %d%n", produceList.size());
+        System.out.printf("TOTAL SALES: $%d%n", totalSales);
     }
 
     public static int calculateTotalSales(List<Edible> items) {

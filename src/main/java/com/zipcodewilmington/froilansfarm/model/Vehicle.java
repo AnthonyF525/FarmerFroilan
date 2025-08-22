@@ -36,12 +36,9 @@ public class Vehicle implements NoiseMaker, Rideable {
         final String ANSI_BLUE = "\u001B[34m";
         final String ANSI_RESET = "\u001B[0m";
         String coloredName = riderName.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA + riderName + ANSI_RESET
-                          : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + riderName + ANSI_RESET
-                          : riderName;
-        String coloredVehicle = riderName.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA + name + ANSI_RESET
-                            : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + name + ANSI_RESET
-                            : name;
-        System.out.println(coloredName + " mounts the vehicle, " + coloredVehicle + ".");
+                      : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + riderName + ANSI_RESET
+                      : riderName;
+        System.out.println(coloredName + " mounts the vehicle, " + name + ".");
     }
 
     public void dismount(String riderName) {
@@ -49,12 +46,9 @@ public class Vehicle implements NoiseMaker, Rideable {
         final String ANSI_BLUE = "\u001B[34m";
         final String ANSI_RESET = "\u001B[0m";
         String coloredName = riderName.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA + riderName + ANSI_RESET
-                      : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + riderName + ANSI_RESET
-                      : riderName;
-        String coloredVehicle = riderName.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA + name + ANSI_RESET
-                        : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + name + ANSI_RESET
-                        : name;
-        System.out.println(coloredName + " dismounts the vehicle, " + coloredVehicle + ".");
+                  : riderName.equalsIgnoreCase("Froilan") ? ANSI_BLUE + riderName + ANSI_RESET
+                  : riderName;
+        System.out.println(coloredName + " dismounts the vehicle, " + name + ".");
     }
 
     // Vehicle-specific method
@@ -62,10 +56,10 @@ public class Vehicle implements NoiseMaker, Rideable {
         final String ANSI_BLUE = "\u001B[34m";
         final String ANSI_MAGENTA = "\u001B[35m";
         final String ANSI_RESET = "\u001B[0m";
-        if (this.name.contains("Froilanda")) {
-            System.out.println(ANSI_MAGENTA + this.name + ANSI_RESET + " is undergoing maintenance.");
-        } else if (this.name.contains("Froilan")) {
-            System.out.println(ANSI_BLUE + this.name + ANSI_RESET + " is undergoing maintenance.");
+        if (this.name.startsWith("Froilanda's")) {
+            System.out.println(ANSI_MAGENTA + "Froilanda's" + ANSI_RESET + " CropDuster is undergoing maintenance.");
+        } else if (this.name.startsWith("Froilan's")) {
+            System.out.println(ANSI_BLUE + "Froilan's" + ANSI_RESET + " Tractor is undergoing maintenance.");
         } else {
             System.out.println(this.name + " is undergoing maintenance.");
         }

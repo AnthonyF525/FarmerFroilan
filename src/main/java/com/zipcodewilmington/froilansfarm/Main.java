@@ -95,7 +95,7 @@ public class Main {
         System.out.println("\n--- Press Enter to end the week ---");
         scanner.nextLine();
 
-                flushScreen();
+        flushScreen();
         System.out.println();
         System.out.println();
         System.out.println(ANSI_WHITE + "                             +&-" + ANSI_RESET);
@@ -109,6 +109,7 @@ public class Main {
         System.out.println(ANSI_WHITE + "  |---|---|---|---|---|    |==|==|    |  |" + ANSI_RESET);
         System.out.println(ANSI_WHITE + " ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" + ANSI_RESET);
         System.out.println("\n\n" + ANSI_LIGHT_PURPLE + "Thanks for visiting the farm!" + ANSI_RESET);
+        System.out.println("\n--- Press Enter to end the simulation ---");
         scanner.nextLine();
         scanner.close();
     }

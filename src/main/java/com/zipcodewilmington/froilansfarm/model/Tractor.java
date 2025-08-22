@@ -16,7 +16,7 @@ public class Tractor extends Vehicle implements FarmVehicle {
         final String ANSI_BLUE = "\u001B[34m";
         final String ANSI_RESET = "\u001B[0m";
         if (name.equalsIgnoreCase("Froilan's Tractor")) {
-            System.out.println(ANSI_BLUE + "Froilan's tractor" + ANSI_RESET + " is operating on the farm!");
+            System.out.println(ANSI_BLUE + "Froilan's " + ANSI_RESET + "tractor is operating on the farm!");
         } else {
             System.out.println(name + " is operating on the farm!");
         }
@@ -27,7 +27,7 @@ public class Tractor extends Vehicle implements FarmVehicle {
         final String ANSI_BLUE = "\u001B[34m";
         final String ANSI_RESET = "\u001B[0m";
         if (name.contains("Froilan")) {
-            System.out.println(ANSI_BLUE + "Froilan's Tractor" + ANSI_RESET + " is humming.");
+            System.out.println(ANSI_BLUE + "Froilan's " + ANSI_RESET + "tractor is humming.");
         } else {
             System.out.println("The " + name + " is humming. ");
         }

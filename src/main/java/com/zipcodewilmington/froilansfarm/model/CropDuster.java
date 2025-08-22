@@ -14,7 +14,7 @@ public class CropDuster extends Aircraft {
         final String ANSI_MAGENTA = "\u001B[35m";
         final String ANSI_RESET = "\u001B[0m";
         if (name.startsWith("Froilanda's")) {
-            System.out.println(ANSI_MAGENTA + "Froilanda's CropDuster" + ANSI_RESET + " is whirling! ");
+            System.out.println(ANSI_MAGENTA + "Froilanda's " + ANSI_RESET + "CropDuster is whirling! ");
         } else {
             System.out.println(name + " is whirling! ");
         }
@@ -31,7 +31,10 @@ public class CropDuster extends Aircraft {
     public void fly(String riderName) {
         final String ANSI_MAGENTA = "\u001B[35m";
         final String ANSI_RESET = "\u001B[0m";
-        String coloredName = name.equals("Froilanda's CropDuster") ? ANSI_MAGENTA + name + ANSI_RESET : name;
-        System.out.println(coloredName + " is taking off.");
+        if (name.startsWith("Froilanda's")) {
+            System.out.println(ANSI_MAGENTA + "Froilanda's" + ANSI_RESET + " CropDuster is taking off.");
+        } else {
+            System.out.println(name.toLowerCase() + " is taking off.");
+        }
     }
 }

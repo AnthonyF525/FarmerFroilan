@@ -38,8 +38,5 @@ public class ChickenCoop {
     }
     
     public void cleanStructure() {
-        final String ANSI_ORANGE = "\u001B[38;5;208m";
-        final String ANSI_RESET = "\u001B[0m";
-        System.out.println(ANSI_ORANGE + this.name + ANSI_RESET + " is being cleaned....");
     }
 }

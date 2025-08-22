@@ -285,7 +285,6 @@ class FarmSimulation {
         System.out.println();
         System.out.println(ANSI_ORANGE + "Time to head out and harvest some crops!" + ANSI_RESET);
         System.out.println();
-        System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " is operating his tractor to harvest the crops...");
 
         Tractor tractor = (Tractor) froilanFarm.getFarmVehicles().get(0);
 
@@ -307,15 +306,15 @@ class FarmSimulation {
                     String yieldDisplayName;
                     switch (crop.getName()) {
                         case "Corn Stalk":
-                            cropDisplayName ="Corn Stalk";
+                            cropDisplayName = "Corn Stalk";
                             yieldDisplayName = ANSI_YELLOW + "Corn" + ANSI_RESET;
                             break;
                         case "Tomato Plant":
-                            cropDisplayName ="Tomato Plant";
+                            cropDisplayName = "Tomato Plant";
                             yieldDisplayName = ANSI_RED + "Tomato" + ANSI_RESET;
                             break;
                         case "Vegetation":
-                            cropDisplayName ="Vegetation";
+                            cropDisplayName = "Vegetation";
                             yieldDisplayName = ANSI_GREEN + "Vegetation" + ANSI_RESET;
                             break;
                         default:
@@ -355,28 +354,32 @@ class FarmSimulation {
 
         System.out.println(
                 ANSI_ORANGE + "Time to clean the animal's structures and check if they are healthy! " + ANSI_RESET);
-        System.out.println("\n" + ANSI_BLUE + "Froilan " + ANSI_RESET
-                + "begins by checking on the horses and cleaning their stables...");
+        System.out.println("\n" + ANSI_BLUE + "Froilan " + ANSI_RESET + "begins cleaning the stables.");
+        System.out.println(ANSI_MAGENTA + "Froilanda " + ANSI_RESET + "begins by checking if the horses are in good health.");
         System.out.println();
 
         for (Stable stable : froilanFarm.getStables()) {
-            System.out.println(ANSI_ORANGE + stable.getName() + ANSI_WHITE + " is being cleaned...." + ANSI_RESET);
+            System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " is cleaning " + stable.getName()+ "...");
             stable.cleanStructure();
             for (Horse horse : stable.getHorses()) {
                 horse.checkHealth();
             }
+            System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " is finished cleaning " + stable.getName() + "!");
             System.out.println();
         }
 
         System.out.println(
-                ANSI_BLUE + "Froilan " + ANSI_RESET + "now goes to check on the chickens and clean their coops...");
+                ANSI_BLUE + "Froilan " + ANSI_RESET + "now goes to clean the chicken coops.");
+        System.out.println(ANSI_MAGENTA + "Froilanda " + ANSI_RESET + "now checks on the chickens.");
         System.out.println();
 
         for (ChickenCoop coop : froilanFarm.getChickenCoop()) {
+            System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " is cleaning " + coop.getName()+ "...");
             coop.cleanStructure();
             for (Chicken chicken : coop.getChickens()) {
                 chicken.checkHealth();
             }
+            System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " is finished cleaning " +coop.getName() + "!");
             System.out.println();
         }
         System.out.println(ANSI_ORANGE + "Wednesday's animal care complete!" + ANSI_RESET);
@@ -419,15 +422,15 @@ class FarmSimulation {
         System.out.println();
         System.out.println(ANSI_ORANGE + "Performing essential maintenance on farm vehicles..." + ANSI_RESET);
         System.out.println();
-        System.out.println(ANSI_BLUE + "Froilan " + ANSI_RESET + "performs maintenance on his tractor!");
         ((Tractor) tractor).mount("Froilan");
         tractor.performMaintenance();
+        System.out.println(ANSI_BLUE + "Froilan " + ANSI_RESET + "finished maintenance on his tractor!");
         ((Tractor) tractor).dismount("Froilan");
         System.out.println();
 
-        System.out.println(ANSI_MAGENTA + "Froilanda " + ANSI_RESET + "performs maintenance on her crop duster!");
         ((CropDuster) cropDuster).mount("Froilanda");
         cropDuster.performMaintenance();
+        System.out.println(ANSI_MAGENTA + "Froilanda " + ANSI_RESET + "finished maintenance on her crop duster!");
         ((CropDuster) cropDuster).dismount("Froilanda");
         System.out.println();
 
@@ -447,10 +450,10 @@ class FarmSimulation {
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
         System.out.println();
 
-        System.out.println(ANSI_ORANGE + "Time to load up the harvested produce and head to the market!" + ANSI_RESET);
-        System.out.println();
         System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " and " + ANSI_MAGENTA + "Froilanda" + ANSI_RESET
-                + " are selling their produce.");
+                + " gather all their harvested produce.");
+        System.out.println();
+        System.out.println(ANSI_ORANGE + "Time to bring them over to the local market!" + ANSI_RESET);
         System.out.println();
 
         // Create a market and sell produce
@@ -477,7 +480,8 @@ class FarmSimulation {
         // Froilan and Froilanda take a leisure ride
         Horse froilanHorse = froilanFarm.getStables().get(0).getHorses().get(0);
         Horse froilandaHorse = froilanFarm.getStables().get(0).getHorses().get(1);
-        System.out.println(ANSI_ORANGE + "Time for a leisure ride with " + froilanHorse.getName() + " and " + froilandaHorse.getName() + "." + ANSI_RESET);
+        System.out.println(ANSI_ORANGE + "Time for a relaxing ride with " + froilanHorse.getName() + " and "
+                + froilandaHorse.getName() + "..." + ANSI_RESET);
         System.out.println();
         froilan.takeLeisureRide(froilanHorse);
         froilanda.takeLeisureRide(froilandaHorse);
@@ -493,7 +497,7 @@ class FarmSimulation {
         System.out.println();
 
         // They eat fresh eggs for dinner
-        System.out.println(ANSI_ORANGE + "Froilan and Froilanda are eating fresh eggs for dinner." + ANSI_RESET);
+        System.out.println(ANSI_ORANGE + "The eggs are gathered and ready for dinner." + ANSI_RESET);
         System.out.println();
         froilan.eat(new EdibleEgg());
         froilanda.eat(new EdibleEgg());

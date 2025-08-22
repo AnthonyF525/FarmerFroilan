@@ -15,7 +15,7 @@ public class Aircraft extends Vehicle {
         String coloredName = riderName.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA + riderName + ANSI_RESET : riderName;
 
         if (name.startsWith("Froilanda's")) {
-            System.out.println(ANSI_MAGENTA + "Froilanda" + ANSI_RESET + "'s CropDuster is taking off");
+            System.out.println(ANSI_MAGENTA + "Froilanda's" + ANSI_RESET + " CropDuster is taking off");
         } else {
             System.out.println(coloredName + "'s " + name + " is taking off");
         }
@@ -26,8 +26,7 @@ public class Aircraft extends Vehicle {
     public void makeNoise() {
         final String ANSI_MAGENTA = "\u001B[35m";
         final String ANSI_RESET = "\u001B[0m";
-        // If you want to show Froilanda's name in magenta when making noise:
-        System.out.println(ANSI_MAGENTA + "Froilanda" + ANSI_RESET + "'s " + name + " is humming. ");
+        System.out.println(ANSI_MAGENTA + "Froilanda's" + ANSI_RESET + " " + name + " is humming. ");
     }
 
     public String getName() {
