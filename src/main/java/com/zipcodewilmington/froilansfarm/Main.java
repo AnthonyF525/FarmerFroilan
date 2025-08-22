@@ -13,7 +13,7 @@ public class Main {
 
        //simulation.runSunday();
         //simulation.runMonday();
-         //simulation.runTuesday();
+        //simulation.runTuesday();
         // simulation.runWednesday();
         // simulation.runThursday();
         // simulation.runFriday();
