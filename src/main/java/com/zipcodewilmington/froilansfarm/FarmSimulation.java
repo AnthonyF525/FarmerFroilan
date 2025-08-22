@@ -185,6 +185,8 @@ class FarmSimulation {
 
         List<CropRow> cropRows = froilanFarm.getField().getCropRows();
 
+        System.out.println(ANSI_BLUE + "Froilan heads out to the farm to plant some crops!" + ANSI_RESET);
+        System.out.println();
         // Row 1: Corn
         CropRow row1 = cropRows.get(0);
         for (int i = 0; i < 3; i++) {
@@ -369,25 +371,22 @@ class FarmSimulation {
             CropRow row4 = froilanFarm.getField().getCropRows().get(3); // index 3 = CropRow 4
             CropRow row5 = froilanFarm.getField().getCropRows().get(4); // index 4 = CropRow 5
             tractor.prepareRow(row4);
-            System.out.println();
             tractor.prepareRow(row5);
             System.out.println();
         }
 
         System.out.println(ANSI_ORANGE + "Performing essential maintenance on the farm vehicles." + ANSI_RESET);
         System.out.println();
+        System.out.println(ANSI_BLUE + "Froilan performs maintenance on his tractor!" + ANSI_RESET);
         ((Tractor) tractor).mount("Froilan");
+        tractor.performMaintenance();
         ((Tractor) tractor).dismount("Froilan");
         System.out.println();
 
+        System.out.println(ANSI_MAGENTA + "Froilanda performs maintenance on her crop duster!" + ANSI_RESET);
         ((CropDuster) cropDuster).mount("Froilanda");
-        ((CropDuster) cropDuster).dismount("Froilanda");
-        System.out.println();
-
-        // Perform maintenance
-        tractor.performMaintenance();
-        System.out.println();
         cropDuster.performMaintenance();
+        ((CropDuster) cropDuster).dismount("Froilanda");
         System.out.println();
 
         System.out.println(ANSI_ORANGE + "Thursday's maintenance complete!" + ANSI_RESET);
