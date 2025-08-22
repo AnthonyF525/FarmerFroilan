@@ -433,11 +433,11 @@ class FarmSimulation {
         Horse froilandaHorse = froilanFarm.getStables().get(0).getHorses().get(1);
 
         System.out.println(ANSI_BLUE + "Froilan takes a leisure ride on " + froilanHorse.getName() + "." + ANSI_RESET);
-        froilan.takeLeisureRide(froilanHorse);
+        //froilan.takeLeisureRide(froilanHorse);
         System.out.println();
 
         System.out.println(ANSI_MAGENTA + "Froilanda takes a leisure ride on " + froilandaHorse.getName() + "." + ANSI_RESET);
-        froilanda.takeLeisureRide(froilandaHorse);
+        //froilanda.takeLeisureRide(froilandaHorse);
         System.out.println();
 
         // Declare coop before using it
