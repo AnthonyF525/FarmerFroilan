@@ -1,15 +1,16 @@
 package com.zipcodewilmington.froilansfarm.model;
+
 import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
 public class Vehicle implements NoiseMaker, Rideable {
-    
+
     // Name of the vehicle
     protected String name;
 
     // Constructor
     public Vehicle(String name) {
-        this.name=name;
+        this.name = name;
     }
 
     // Implement makeNoise method from NoiseMaker interface
@@ -21,13 +22,20 @@ public class Vehicle implements NoiseMaker, Rideable {
     // Implement mount and dismount methods from Rideable interface
     @Override
     public void mount() {
-        System.out.println(" is mounting the vehicle, " + name);
+        System.out.println("Someone mounts the vehicle, " + name);
     }
 
-    // Implement dismount method from Rideable interface
     @Override
     public void dismount() {
-        System.out.println(" is dismounting the vehicle," + name);
+        System.out.println("Someone dismounts the vehicle, " + name);
+    }
+
+    public void mount(String riderName) {
+        System.out.println(riderName + " mounts the vehicle, " + name);
+    }
+
+    public void dismount(String riderName) {
+        System.out.println(riderName + " dismounts the vehicle, " + name);
     }
 
     // Vehicle-specific method
