@@ -7,6 +7,10 @@ import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 // Person is a LivingEntity that can make noise and eat.
 public class Person extends LivingEntity implements NoiseMaker, Eater {
 
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_BLUE = "\u001B[34m";
+    private static final String ANSI_MAGENTA = "\u001B[35m";
+
     // Constructor
     public Person(String name) {
         super(name);
@@ -36,5 +40,15 @@ public class Person extends LivingEntity implements NoiseMaker, Eater {
                 color = "";
         }
         System.out.println(this.name + " is eating " + color + food.getName() + "\u001B[0m" + ".");
+    }
+
+    @Override
+    public String getName() {
+        if ("Froilan".equals(super.getName())) {
+            return ANSI_BLUE + super.getName() + ANSI_RESET;
+        } else if ("Froilanda".equals(super.getName())) {
+            return ANSI_MAGENTA + super.getName() + ANSI_RESET;
+        }
+        return super.getName();
     }
 }

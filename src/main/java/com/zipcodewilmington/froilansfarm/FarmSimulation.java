@@ -294,7 +294,7 @@ class FarmSimulation {
                     Edible harvestedItem = tractor.harvest(crop);
                     if (harvestedItem != null) {
                         froilanFarm.addToHarvestedProduce(harvestedItem);
-                        System.out.println("SUCCESS! Yielded " + harvestedItem.getName() + ".");
+                        System.out.println("     SUCCESS! Yielded " + harvestedItem.getName() + ".");
                     } else {
                         System.out.println("FAILURE. Crop did not yield.");
                     }
