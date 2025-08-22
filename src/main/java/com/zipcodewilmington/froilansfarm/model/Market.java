@@ -54,7 +54,7 @@ public class Market {
         System.out.printf("\nTOTAL SALES: $%d%n", totalSales);
     }
 
-    private int calculateTotalSales(List<Edible> items) {
+    public static int calculateTotalSales(List<Edible> items) {
         int total = 0;
         for (Edible item : items) {
             total += getPrice(item.getName());
@@ -62,7 +62,7 @@ public class Market {
         return total;
     }
 
-    public int getPrice(String itemName) {
+    public static int getPrice(String itemName) {
         switch (itemName) {
             case "Egg":
             case "EdibleEgg":
