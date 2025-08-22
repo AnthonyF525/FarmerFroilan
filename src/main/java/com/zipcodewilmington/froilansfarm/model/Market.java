@@ -19,7 +19,7 @@ public class Market {
     private static final String ANSI_YELLOW = "\u001B[33m";
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_GREEN = "\u001B[32m";
-    private static final String ANSI_ORANGE = "\u001B[38;5;208m";
+    private static final String LIGHT_PURPLE = "\u001B[38;5;183m";
     final String BRIGHT_GREEN = "\u001B[38;5;46m";
 
     // Static methods for buying/selling
@@ -27,7 +27,7 @@ public class Market {
         System.out.println("Items for sale: " + ANSI_YELLOW + "Corn" + ANSI_RESET + ", " + ANSI_RED + "Tomato"
                 + ANSI_RESET + ", and " + ANSI_GREEN + "Vegetation" + ANSI_RESET);
         System.out.println();
-        System.out.println(ANSI_ORANGE + "Selling produce to locals..." + ANSI_RESET);
+        System.out.println(LIGHT_PURPLE + "Selling produce to locals..." + ANSI_RESET);
         System.out.println();
         System.out.println(BRIGHT_GREEN + "Sales Completed!" + ANSI_RESET);
         System.out.println();
