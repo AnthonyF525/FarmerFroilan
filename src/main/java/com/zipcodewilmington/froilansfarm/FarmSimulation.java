@@ -108,7 +108,7 @@ class FarmSimulation {
     public void runMorningRoutine() {
         // Riding each horse
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
-        System.out.println(ANSI_LIGHT_PURPLE + "--- Horse Riding ---" + ANSI_RESET);
+        System.out.println(ANSI_LIGHT_PURPLE + " --- Horse Riding ---" + ANSI_RESET);
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
         System.out.println();
         System.out.println(ANSI_ORANGE + "Froilan and Froilanda head out to ride the horses!" + ANSI_RESET);
@@ -142,7 +142,7 @@ class FarmSimulation {
 
         // Feeding each horse
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
-        System.out.println(ANSI_LIGHT_PURPLE + "--- Feeding Horses ---" + ANSI_RESET);
+        System.out.println(ANSI_LIGHT_PURPLE + " --- Feeding Horses ---" + ANSI_RESET);
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
         System.out.println();
         System.out.println(ANSI_ORANGE + "Froilan and Froilanda head out to feed the horses!" + ANSI_RESET);
@@ -202,7 +202,7 @@ class FarmSimulation {
         runBreakfastRoutine();
         System.out.println();
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
-        System.out.println(ANSI_LIGHT_PURPLE + "--- Planting Day ---" + ANSI_RESET);
+        System.out.println(ANSI_LIGHT_PURPLE + "  --- Planting Day ---" + ANSI_RESET);
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
         System.out.println();
 
@@ -246,7 +246,7 @@ class FarmSimulation {
         runBreakfastRoutine();
         System.out.println();
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
-        System.out.println(ANSI_LIGHT_PURPLE + "--- Fertilize Day ---" + ANSI_RESET);
+        System.out.println(ANSI_LIGHT_PURPLE + " --- Fertilize Day ---" + ANSI_RESET);
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
         System.out.println();
         System.out.println(ANSI_ORANGE + "Time to fertilize the crops!" + ANSI_RESET);
@@ -280,7 +280,7 @@ class FarmSimulation {
         runBreakfastRoutine();
         System.out.println();
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
-        System.out.println(ANSI_LIGHT_PURPLE + "--- Harvest Day ---" + ANSI_RESET);
+        System.out.println(ANSI_LIGHT_PURPLE + "  --- Harvest Day ---" + ANSI_RESET);
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
         System.out.println();
         System.out.println(ANSI_ORANGE + "Time to head out and harvest some crops!" + ANSI_RESET);
@@ -307,15 +307,15 @@ class FarmSimulation {
                     String yieldDisplayName;
                     switch (crop.getName()) {
                         case "Corn Stalk":
-                            cropDisplayName = ANSI_YELLOW + "Corn Stalk" + ANSI_RESET;
+                            cropDisplayName ="Corn Stalk";
                             yieldDisplayName = ANSI_YELLOW + "Corn" + ANSI_RESET;
                             break;
                         case "Tomato Plant":
-                            cropDisplayName = ANSI_RED + "Tomato Plant" + ANSI_RESET;
+                            cropDisplayName ="Tomato Plant";
                             yieldDisplayName = ANSI_RED + "Tomato" + ANSI_RESET;
                             break;
                         case "Vegetation":
-                            cropDisplayName = ANSI_GREEN + "Vegetation" + ANSI_RESET;
+                            cropDisplayName ="Vegetation";
                             yieldDisplayName = ANSI_GREEN + "Vegetation" + ANSI_RESET;
                             break;
                         default:
@@ -443,7 +443,7 @@ class FarmSimulation {
         runBreakfastRoutine();
         System.out.println();
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
-        System.out.println(ANSI_LIGHT_PURPLE + "--- Market Day ---" + ANSI_RESET);
+        System.out.println(ANSI_LIGHT_PURPLE + "  --- Market Day ---" + ANSI_RESET);
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
         System.out.println();
 
@@ -470,7 +470,7 @@ class FarmSimulation {
         runBreakfastRoutine();
         System.out.println();
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
-        System.out.println(ANSI_LIGHT_PURPLE + "--- Rest and Leisure Day ---" + ANSI_RESET);
+        System.out.println(ANSI_LIGHT_PURPLE + " ---  Leisure Day ---" + ANSI_RESET);
         System.out.println(ANSI_LIGHT_PURPLE + "------------------------" + ANSI_RESET);
         System.out.println();
 
