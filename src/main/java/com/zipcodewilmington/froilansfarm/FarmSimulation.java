@@ -649,6 +649,7 @@ class FarmSimulation {
         System.out.println();
         froilan.makeNoise();
         froilanda.makeNoise();
+        System.out.println();
         System.out.println(LIGHT_PURPLE + "Saturday's leisure day complete!" + ANSI_RESET);
         System.out.println();
     }
