@@ -23,7 +23,7 @@ class SundayRoutinetest extends BaseFarmtest {
         
         assertOutputContains(
             "SUNDAY",
-            "--- Planting Day ---",
+            "  --- Planting Day ---",
             "Time to head out and plant some crops!",
             "Sunday's planting complete!"
         );
@@ -56,7 +56,7 @@ class SundayRoutinetest extends BaseFarmtest {
         assertOutputContains(
             "Corn",
             "Tomato",
-            "Arbitrary Vegetation"
+            "Spinach"
         );
     }
 

@@ -22,14 +22,16 @@ public class Person extends LivingEntity implements NoiseMaker, Eater {
     // Implement makeNoise method from NoiseMaker interface
     @Override
     public void makeNoise() {
-        System.out.println(this.name + " is speaking.");
+        String colorName = this.name.equalsIgnoreCase("Froilan") ? ANSI_BLUE
+                : this.name.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA : "";
+        System.out.println(colorName + this.name + ANSI_RESET + " is speaking.");
     }
 
     // Implement eat method from Eater interface
     @Override
     public void eat(Edible food) {
-        String colorName = this.name.equalsIgnoreCase("Froilan") ? ANSI_BLUE : 
-                           this.name.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA : "";
+        String colorName = this.name.equalsIgnoreCase("Froilan") ? ANSI_BLUE
+                : this.name.equalsIgnoreCase("Froilanda") ? ANSI_MAGENTA : "";
         String colorFood;
         switch (food.getName()) {
             case "Corn":
@@ -41,10 +43,14 @@ public class Person extends LivingEntity implements NoiseMaker, Eater {
             case "Egg":
                 colorFood = ANSI_ORANGE;
                 break;
+            case "Spinach":
+                colorFood = ANSI_GREEN;
+                break;
             default:
                 colorFood = "";
         }
-        System.out.println(colorName + this.name + ANSI_RESET + " is eating " + colorFood + food.getName() + ANSI_RESET + ".");
+        System.out.println("* " + colorName + this.name + ANSI_RESET + " is eating " + colorFood + food.getName()
+                + ANSI_RESET + ".");
     }
 
     @Override
