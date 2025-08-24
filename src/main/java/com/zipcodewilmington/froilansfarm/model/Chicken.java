@@ -32,10 +32,10 @@ public class Chicken extends Animal implements Produce {
         final String ANSI_RED = "\u001B[31m";
         final String ANSI_RESET = "\u001B[0m";
         if (!hasBeenFertilized) {
-            System.out.println("* " + ANSI_BROWN + this.name + ANSI_RESET + ", lays an egg.");
+            System.out.println("* " + ANSI_BROWN + this.name + ANSI_RESET + ", lays an edible egg.");
             return new EdibleEgg();
         } else {
-            System.out.println("* " + ANSI_BROWN + this.name + ANSI_RESET + ", lays an " + ANSI_RED + "unedible fertilized egg" + ANSI_RESET + ".");
+            System.out.println( "* " + ANSI_BROWN + this.name + ANSI_RESET + ", lays an" + ANSI_RED+" unedible fertilized"+ANSI_RESET+" egg.");
             return null;
         }
     }

@@ -7,6 +7,7 @@ import com.zipcodewilmington.froilansfarm.interfaces.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -315,15 +316,20 @@ class FarmSimulation {
                 break;
         }
 
-        // Mark 2 chickens' eggs as unedible (fertilized)
-        layingChickens.get(4).setHasBeenFertilized(true);
-        layingChickens.get(6).setHasBeenFertilized(true);
+        // Shuffle and pick 2 random chickens to fertilize
+        Collections.shuffle(layingChickens);
+        layingChickens.get(2).setHasBeenFertilized(true);
+        layingChickens.get(5).setHasBeenFertilized(true);
 
         List<Edible> collectedEggs = new ArrayList<>();
-        for (Chicken chicken : layingChickens) {
+        List<Chicken> incubatorEggs = new ArrayList<>();
+        for (int i = 0; i < layingChickens.size(); i++) {
+            Chicken chicken = layingChickens.get(i);
             Edible egg = chicken.yieldProduce(); // This method prints the correct message
             if (egg != null) {
-                collectedEggs.add(egg);
+                collectedEggs.add(egg); // edible eggs
+            } else {
+                incubatorEggs.add(chicken);
             }
         }
         System.out.println();
@@ -331,6 +337,8 @@ class FarmSimulation {
         System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " checks the coops for edible eggs...");
         System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " collects " + collectedEggs.size() + " eggs.");
         froilanFarm.getHarvestedProduce().addAll(collectedEggs);
+
+        System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " puts " + incubatorEggs.size() + " fertilized eggs into the incubator.");
         System.out.println();
 
         System.out.println(LIGHT_PURPLE + "Monday's tasks are complete !" + ANSI_RESET);
