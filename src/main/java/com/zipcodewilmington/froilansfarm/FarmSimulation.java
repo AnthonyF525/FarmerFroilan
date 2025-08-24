@@ -529,7 +529,14 @@ class FarmSimulation {
 
         System.out.println(ANSI_BLUE + "Froilan " + ANSI_RESET + "finished preparing the crop rows!");
         System.out.println();
-        System.out.println(LIGHT_PURPLE + "Performing essential maintenance on farm vehicles..." + ANSI_RESET);
+        System.out.println(LIGHT_PURPLE + "Froilan performs maintenance on the farm..." + ANSI_RESET);
+        System.out.println();
+        System.out.println(ANSI_BLUE + "Froilan " + ANSI_RESET + "cleans and sharpens all farm tools for the next week.");
+        System.out.println(ANSI_BLUE + "Froilan " + ANSI_RESET + "oils the barn doors and fixes any loose hinges.");
+        System.out.println(ANSI_BLUE + "Froilan " + ANSI_RESET + "walks the perimeter and repairs any broken fences.");
+        System.out.println(ANSI_BLUE + "Froilan " + ANSI_RESET + "checks the irrigation system for leaks or clogs.");
+        System.out.println();
+        System.out.println(LIGHT_PURPLE + "Froilan and Froilanda perform essential maintenance on their farm vehicles..." + ANSI_RESET);
         System.out.println();
         ((Tractor) tractor).mount("Froilan");
         tractor.performMaintenance();
@@ -566,7 +573,7 @@ class FarmSimulation {
         List<Edible> harvestedProduce = froilanFarm.getHarvestedProduce();
         System.out.println("Total Produce Gathered: " + harvestedProduce.size());
         System.out.println();
-        System.out.println(LIGHT_PURPLE + "Time to bring them over to the local market!" + ANSI_RESET);
+        System.out.println(LIGHT_PURPLE + "Time to bring them over to the local market and set up their produce stand!" + ANSI_RESET);
         System.out.println();
 
         // Select exactly 20 items for sale

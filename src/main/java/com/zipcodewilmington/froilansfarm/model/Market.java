@@ -28,7 +28,15 @@ public class Market {
         System.out.println("Items for sale: " + ANSI_YELLOW + "Corn" + ANSI_RESET + ", " + ANSI_RED + "Tomato"
                 + ANSI_RESET + ", " + ANSI_ORANGE + "Egg" + ANSI_RESET + ", and " + ANSI_GREEN + "Spinach" + ANSI_RESET);
         System.out.println();
-        System.out.println(LIGHT_PURPLE + "Selling produce to locals..." + ANSI_RESET);
+        System.out.println("Prices:");
+        System.out.println(" - " + ANSI_YELLOW + "Corn" + ANSI_RESET + ": $" + CORN_PRICE);
+        System.out.println(" - " + ANSI_RED + "Tomato" + ANSI_RESET + ": $" + TOMATO_PRICE);
+        System.out.println(" - " + ANSI_ORANGE + "Egg" + ANSI_RESET + ": $" + EGG_PRICE);
+        System.out.println(" - " + ANSI_GREEN + "Spinach" + ANSI_RESET + ": $" + SPINACH_PRICE);
+        System.out.println();
+        System.out.println(LIGHT_PURPLE + "Local families, chefs, and bakers all stop by the stand." + ANSI_RESET);
+        System.out.println();
+        System.out.println(LIGHT_PURPLE + "Froilan and Froilanda sell produce to locals..." + ANSI_RESET);
         System.out.println();
         System.out.println(BRIGHT_GREEN + "Sales Completed!" + ANSI_RESET);
         System.out.println();
