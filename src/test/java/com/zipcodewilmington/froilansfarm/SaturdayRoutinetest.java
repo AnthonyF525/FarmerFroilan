@@ -21,9 +21,10 @@ class SaturdayRoutinetest extends BaseFarmtest {
     void testSaturdayIsLeisureDay() {
         farmSimulation.runSaturday();
 
-        assertOutputContains("SATURDAY",
-            "--- Leisure Day ---",
-            "Time for a relaxing ride",
+        assertOutputContains(
+            "SATURDAY",
+            " ---  Leisure Day ---",
+            "Time for a relaxing ride with Jasper and Spirit...",
             "Saturday's rest and recreation complete!"
         );
     }
