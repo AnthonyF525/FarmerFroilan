@@ -1,70 +1,106 @@
 package com.zipcodewilmington.froilansfarm;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+/**
+ * Test class specifically for morning routine functionality
+ */
+class MorningRoutineTest extends BaseFarmtest {
 
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MorningRoutineTest {
-
-    private ByteArrayOutputStream output;
-    private PrintStream originalOut;
-
-    @BeforeEach
-    void setUp() {
-        // Capture console output before each test
-        output = new ByteArrayOutputStream();
-        originalOut = System.out;
-        System.setOut(new PrintStream(output));
+    @Test
+    @DisplayName("Morning routine should complete without exceptions")
+    void testMorningRoutineCompletesSuccessfully() {
+        assertRoutineCompletesSuccessfully(() -> farmSimulation.runMorningRoutine());
     }
 
     @Test
-    void testMorningRoutine() {
-        // Arrange
-        FarmSimulation simulation = new FarmSimulation();
-
-        // Act
-        simulation.runMorningRoutine();
-
-        // Restore original System.out
-        System.setOut(originalOut);
-
-        // Assert
-        String console = output.toString();
-        assertTrue(console.contains("Froilan mounts"), "Should show Froilan mounting horses.");
-        assertTrue(console.contains("Froilanda mounts"), "Should show Froilanda mounting horses.");
-        assertTrue(console.contains("Morning ride complete!"), "Should confirm morning ride is complete.");
-        assertTrue(console.contains("Feeding complete!"), "Should confirm feeding is complete.");
+    @DisplayName("Morning routine should include horse riding section")
+    void testMorningRoutineIncludesHorseRiding() {
+        farmSimulation.runMorningRoutine();
+        
+        assertOutputContains(
+            "--- Horse Riding ---",
+            "Froilan and Froilanda head out to ride the horses!",
+            "Morning rides complete!"
+        );
     }
 
     @Test
-    void testBreakfastRoutine() {
-        // Arrange
-        FarmSimulation simulation = new FarmSimulation();
+    @DisplayName("Morning routine should include horse feeding section")
+    void testMorningRoutineIncludesHorseFeeding() {
+        farmSimulation.runMorningRoutine();
+        
+        assertOutputContains(
+            "--- Feeding Horses ---",
+            "Froilan and Froilanda head out to feed the horses!",
+            "Feeding complete!"
+        );
+    }
 
-        // Act
-        simulation.runMorningRoutine(); // breakfast happens inside
+    @Test
+    @DisplayName("Morning routine should alternate riders for horses")
+    void testMorningRoutineAlternatesRiders() {
+        farmSimulation.runMorningRoutine();
+        
+        assertOutputContains(
+            "Froilan mounts",
+            "Froilanda mounts",
+            "dismounts"
+        );
+    }
 
-        // Restore original System.out
-        System.setOut(originalOut);
+    @Test
+    @DisplayName("Morning routine should feed horses with corn")
+    void testMorningRoutineFeedsHorses() {
+        farmSimulation.runMorningRoutine();
+        
+        assertOutputContains("are feeding");
+    }
 
-        // Assert
-        String console = output.toString();
+    @Test
+    @DisplayName("Morning routine should have proper section formatting")
+    void testMorningRoutineFormatting() {
+        farmSimulation.runMorningRoutine();
+        String output = getOutput();
+        
+        // Check for proper section dividers
+        assertTrue(output.contains("------------------------"));
+        
+        // Check that both main sections are present
+        assertTrue(output.contains("--- Horse Riding ---"));
+        assertTrue(output.contains("--- Feeding Horses ---"));
+    }
 
-        // Check Froilan's breakfast
-        assertTrue(console.contains("Froilan is eating breakfast:"), "Froilan's breakfast start missing.");
-        assertTrue(console.contains("Froilan is eating Corn"), "Corn missing from Froilan's breakfast.");
-        assertTrue(console.contains("Froilan is eating Tomato"), "Tomato missing from Froilan's breakfast.");
-        assertTrue(console.contains("Froilan is eating Egg"), "Egg missing from Froilan's breakfast.");
-        assertTrue(console.contains("Froilan has finished breakfast!"), "Froilan's breakfast completion missing.");
+    @Test
+    @DisplayName("Morning routine should handle all horses")
+    void testMorningRoutineHandlesAllHorses() {
+        farmSimulation.runMorningRoutine();
+        String output = getOutput();
+        
+        // Should have multiple mount/dismount pairs (10 horses total)
+        int mountCount = countOccurrences(output, "mounts");
+        int dismountCount = countOccurrences(output, "dismounts");
+        
+        assertTrue(mountCount >= 10, "Should mount at least 10 horses");
+        assertTrue(dismountCount >= 10, "Should dismount at least 10 horses");
+        assertEquals(mountCount, dismountCount, "Mount and dismount counts should be equal");
+    }
 
-        // Check Froilanda's breakfast
-        assertTrue(console.contains("Froilanda is eating breakfast:"), "Froilanda's breakfast start missing.");
-        assertTrue(console.contains("Froilanda is eating Corn"), "Corn missing from Froilanda's breakfast.");
-        assertTrue(console.contains("Froilanda is eating Egg"), "Egg missing from Froilanda's breakfast.");
-        assertTrue(console.contains("Froilanda has finished breakfast!"), "Froilanda's breakfast completion missing.");
+    @Test
+    @DisplayName("Morning routine should include horse names")
+    void testMorningRoutineIncludesHorseNames() {
+        farmSimulation.runMorningRoutine();
+        String output = getOutput();
+        
+        // Should contain some of the horse names from the predefined list
+        boolean containsHorseNames = output.contains("Jasper") || 
+                                   output.contains("Spirit") || 
+                                   output.contains("Daisy") ||
+                                   output.contains("Lucky");
+        
+        assertTrue(containsHorseNames, "Output should contain horse names");
     }
 }

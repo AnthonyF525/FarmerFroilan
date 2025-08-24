@@ -103,6 +103,5 @@ public class Farm {
         }
         return "Total Crops: " + totalCount;
     }
-}   
-
+}
 
