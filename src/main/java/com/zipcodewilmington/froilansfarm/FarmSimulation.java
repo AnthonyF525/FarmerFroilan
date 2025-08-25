@@ -479,7 +479,7 @@ class FarmSimulation {
         System.out.println();
 
         for (ChickenCoop coop : froilanFarm.getChickenCoop()) {
-            System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " is cleaning " + coop.getName() + "...");
+            System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " is cleaning out and sweeping " + coop.getName() + "...");
             coop.cleanStructure();
             for (Chicken chicken : coop.getChickens()) {
                 chicken.checkHealth();
