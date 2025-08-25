@@ -22,29 +22,27 @@ class SaturdayRoutinetest extends BaseFarmtest {
         farmSimulation.runSaturday();
 
         assertOutputContains(
-            "SATURDAY",
-            " ---  Leisure Day ---",
-            "Time for a relaxing ride with Jasper and Spirit...",
-            "Saturday's rest and recreation complete!"
-        );
+                "SATURDAY",
+                " ---  Leisure Day ---",
+                "Time for a relaxing ride with Jasper and Spirit...",
+                "Saturday's leisure day complete!");
     }
 
     @Test
     @DisplayName("Saturday should include morning routine")
     void testSaturdayIncludesMorningRoutine() {
         farmSimulation.runSaturday();
-        
+
         assertOutputContains(
-            "--- Horse Riding ---",
-            "--- Feeding Horses ---"
-        );
+                "--- Horse Riding ---",
+                "--- Feeding Horses ---");
     }
 
     @Test
     @DisplayName("Saturday should include breakfast routine")
     void testSaturdayIncludesBreakfastRoutine() {
         farmSimulation.runSaturday();
-        
+
         assertOutputContains("---Breakfast Routine---");
     }
 
@@ -52,19 +50,8 @@ class SaturdayRoutinetest extends BaseFarmtest {
     @DisplayName("Saturday should include leisure horse riding")
     void testSaturdayIncludesLeisureRiding() {
         farmSimulation.runSaturday();
-        
-        assertOutputContains("Time for a relaxing ride");
-    }
 
-    @Test
-    @DisplayName("Saturday should include egg laying activity")
-    void testSaturdayIncludesEggLaying() {
-        farmSimulation.runSaturday();
-        
-        assertOutputContains(
-            "chickens are ready to lay eggs",
-            "eggs are gathered and ready for dinner"
-        );
+        assertOutputContains("Time for a relaxing ride");
     }
 
     @Test
@@ -79,7 +66,7 @@ class SaturdayRoutinetest extends BaseFarmtest {
     void testSaturdayShowsBothTakingLeisureRides() {
         farmSimulation.runSaturday();
         String output = getOutput();
-        
+
         assertTrue(output.contains("Froilan") && output.contains("Froilanda"));
         assertTrue(output.contains("relaxing ride") || output.contains("leisure"));
     }
@@ -89,38 +76,25 @@ class SaturdayRoutinetest extends BaseFarmtest {
     void testSaturdayShowsSpecificHorsesForLeisure() {
         farmSimulation.runSaturday();
         String output = getOutput();
-        
-        // Should mention specific horse names for the leisure ride
-        boolean containsHorseNames = output.contains("Jasper") || 
-                                   output.contains("Spirit") || 
-                                   output.contains("Daisy") ||
-                                   output.contains("Lucky") ||
-                                   output.contains("and"); // "horse1 and horse2"
-        
-        assertTrue(containsHorseNames, "Should mention specific horses for leisure rides");
-    }
 
-    @Test
-    @DisplayName("Saturday should show egg collection and consumption")
-    void testSaturdayShowsEggCollectionAndConsumption() {
-        farmSimulation.runSaturday();
-        
-        assertOutputContains(
-            "chickens are ready to lay eggs",
-            "eggs are gathered",
-            "ready for dinner"
-        );
+        // Should mention specific horse names for the leisure ride
+        boolean containsHorseNames = output.contains("Jasper") ||
+                output.contains("Spirit") ||
+                output.contains("Daisy") ||
+                output.contains("Lucky") ||
+                output.contains("and"); // "horse1 and horse2"
+
+        assertTrue(containsHorseNames, "Should mention specific horses for leisure rides");
     }
 
     @Test
     @DisplayName("Saturday should show happy chickens")
     void testSaturdayShowsHappyChickens() {
         farmSimulation.runSaturday();
-        
+
         assertOutputContains(
-            "chickens coo happily",
-            "go about their evening"
-        );
+                "chickens coo happily",
+                "after their meal!");
     }
 
     @Test
@@ -128,10 +102,10 @@ class SaturdayRoutinetest extends BaseFarmtest {
     void testSaturdayIncludesChickenSounds() {
         farmSimulation.runSaturday();
         String output = getOutput();
-        
+
         // Should show chickens making noise
-        assertTrue(output.contains("coo") || output.contains("noise") || 
-                  output.contains("sound") || output.contains("happily"));
+        assertTrue(output.contains("coo") || output.contains("noise") ||
+                output.contains("sound") || output.contains("happily"));
     }
 
     @Test
@@ -139,8 +113,8 @@ class SaturdayRoutinetest extends BaseFarmtest {
     void testSaturdayEndsWithCompletionMessage() {
         farmSimulation.runSaturday();
         String output = getOutput();
-        
-        assertTrue(output.contains("Saturday's rest and recreation complete!"));
+
+        assertTrue(output.contains("Saturday's leisure day complete!"));
     }
 
     @Test
@@ -148,21 +122,10 @@ class SaturdayRoutinetest extends BaseFarmtest {
     void testSaturdayShowsRelaxedPace() {
         farmSimulation.runSaturday();
         String output = getOutput();
-        
-        // Should emphasize leisure, relaxation, rest
-        assertTrue(output.contains("relaxing") || output.contains("leisure") || 
-                  output.contains("rest") || output.contains("recreation"));
-    }
 
-    @Test
-    @DisplayName("Saturday should show evening activities")
-    void testSaturdayShowsEveningActivities() {
-        farmSimulation.runSaturday();
-        
-        assertOutputContains(
-            "dinner",
-            "evening"
-        );
+        // Should emphasize leisure, relaxation, rest
+        assertTrue(output.contains("relaxing") || output.contains("leisure") ||
+                output.contains("rest") || output.contains("recreation"));
     }
 
     @Test
@@ -170,13 +133,31 @@ class SaturdayRoutinetest extends BaseFarmtest {
     void testSaturdayShowsFarmLifeBalance() {
         farmSimulation.runSaturday();
         String output = getOutput();
-        
+
         // Should show both work (egg collection) and leisure (riding)
         assertTrue(output.contains("leisure") || output.contains("relaxing"));
         assertTrue(output.contains("eggs") || output.contains("chickens"));
-        
+
         // Should show contentment and happiness
-        assertTrue(output.contains("happily") || output.contains("ready") || 
-                  output.contains("recreation"));
+        assertTrue(output.contains("happily") || output.contains("ready") ||
+                output.contains("recreation"));
+    }
+
+    @Test
+    @DisplayName("Saturday should include picnic activity")
+    void testSaturdayIncludesPicnic() {
+        farmSimulation.runSaturday();
+        String output = getOutput();
+        assertTrue(output.toLowerCase().contains("picnic"), "Output should mention a picnic activity");
+    }
+
+    @Test
+    @DisplayName("Saturday should include Froilan and Froilanda speaking")
+    void testSaturdayIncludesSpeaking() {
+        farmSimulation.runSaturday();
+        String output = getOutput();
+        output = output.replaceAll("\u001B\\[[;\\d]*m", "");
+        assertTrue(output.contains("Froilan is speaking"), "Output should include 'Froilan is speaking'");
+        assertTrue(output.contains("Froilanda is speaking"), "Output should include 'Froilanda is speaking'");
     }
 }

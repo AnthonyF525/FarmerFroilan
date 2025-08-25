@@ -8,9 +8,7 @@ import com.zipcodewilmington.froilansfarm.model.Horse;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
-
 import com.zipcodewilmington.froilansfarm.interfaces.Botanist;
-
 
 // Farmer class implements Rider and Botanist interfaces.
 public class Farmer extends Person implements Rider, Botanist {
@@ -35,7 +33,7 @@ public class Farmer extends Person implements Rider, Botanist {
         System.out.println(ANSI_BLUE + "Froilan" + ANSI_RESET + " dismounts the vehicle.");
         rideable.dismount();
     }
-    
+
     // Implement takeLeisureRide method from Rider interface
     @Override
     public void takeLeisureRide(Horse horse) {
@@ -43,7 +41,8 @@ public class Farmer extends Person implements Rider, Botanist {
         final String ANSI_BROWN = "\u001B[38;5;94m";
         final String ANSI_RESET = "\u001B[0m";
         System.out.println(
-            ANSI_BLUE + "Froilan" + ANSI_RESET + " takes a leisure ride on " + ANSI_BROWN + horse.getName() + ANSI_RESET + ".");
+                ANSI_BLUE + "Froilan" + ANSI_RESET + " takes a leisure ride on " + ANSI_BROWN + horse.getName()
+                        + ANSI_RESET + ".");
     }
 
     // Implement plant method from Botanist interface
@@ -52,7 +51,9 @@ public class Farmer extends Person implements Rider, Botanist {
         final String ANSI_BLUE = "\u001B[34m";
         final String ANSI_RESET = "\u001B[0m";
         String coloredName = this.name.equalsIgnoreCase("Froilan") ? ANSI_BLUE + this.name + ANSI_RESET : this.name;
-        System.out.println(coloredName + " is planting a " + crop.getName() + " in " + cropRow.getName() + ".");
+        // Always use crop.getName() for the crop type
+        String cropType = crop.getName();
+        System.out.println("* " + coloredName + " is planting a " + cropType + " in " + cropRow.getName() + ".");
         cropRow.addCrop(crop);
     }
 

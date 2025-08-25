@@ -57,11 +57,11 @@ public class Vehicle implements NoiseMaker, Rideable {
         final String ANSI_MAGENTA = "\u001B[35m";
         final String ANSI_RESET = "\u001B[0m";
         if (this.name.startsWith("Froilanda's")) {
-            System.out.println(ANSI_MAGENTA + "Froilanda's" + ANSI_RESET + " CropDuster is undergoing maintenance.");
+            System.out.println(ANSI_MAGENTA + "Froilanda's" + ANSI_RESET + " CropDuster is undergoing maintenance...");
         } else if (this.name.startsWith("Froilan's")) {
-            System.out.println(ANSI_BLUE + "Froilan's" + ANSI_RESET + " Tractor is undergoing maintenance.");
+            System.out.println(ANSI_BLUE + "Froilan's" + ANSI_RESET + " Tractor is undergoing maintenance...");
         } else {
-            System.out.println(this.name + " is undergoing maintenance.");
+            System.out.println(this.name + " is undergoing maintenance...");
         }
     }
 }

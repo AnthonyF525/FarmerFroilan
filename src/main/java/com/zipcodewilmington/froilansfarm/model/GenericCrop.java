@@ -8,6 +8,10 @@ public class GenericCrop extends LivingEntity implements Crop {
     private boolean hasBeenHarvested = false;
     private boolean hasBeenFertilized = false;
 
+    public GenericCrop() {
+        super("Generic Crop");
+    }
+    
     public GenericCrop(String name) {
         super(name);
     }
@@ -19,7 +23,7 @@ public class GenericCrop extends LivingEntity implements Crop {
         return new Edible() {
             @Override
             public String getName() {
-                return "Vegetation";
+                return "Spinach";
             }
             @Override
             public int getNutritionalValue() {

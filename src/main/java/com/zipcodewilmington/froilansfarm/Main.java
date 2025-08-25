@@ -12,7 +12,6 @@ public class Main {
 
     private static final String ANSI_RESET = "\u001B[0m";
     private static final String ANSI_WHITE = "\u001B[37m";
-    private static final String ANSI_CYAN = "\u001B[36m";
     private static final String ANSI_ORANGE = "\u001B[38;5;208m";
     private static final String ANSI_YELLOW = "\u001B[33m";
     private static final String ANSI_GREEN = "\u001B[32m";
@@ -20,6 +19,8 @@ public class Main {
     private static final String ANSI_BLUE = "\u001B[34m";
     private static final String ANSI_MAGENTA = "\u001B[35m";
     private static final String ANSI_LIGHT_PURPLE = "\u001B[38;5;183m";
+    private static final String ANSI_BROWN = "\u001B[38;5;130m";
+    private static final String ANSI_GRAY = "\u001B[90m";
 
     public static void main(String[] args) {
 
@@ -29,6 +30,8 @@ public class Main {
 
         // Header Screen
         flushScreen();
+        System.out.println();
+        System.out.println();
         System.out.println();
         System.out.println();
         System.out.println(ANSI_WHITE + "                             +&-" + ANSI_RESET);
@@ -43,14 +46,47 @@ public class Main {
         System.out.println(ANSI_WHITE + " ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" + ANSI_RESET);
         System.out.println("\n" + ANSI_LIGHT_PURPLE + "Welcome To Froilan Farm!" + ANSI_RESET);
         System.out.println("\n" + ANSI_WHITE + "This farm has the following:" + ANSI_RESET);
+        System.out.println("=====================================");
         System.out.println();
-        System.out.println("  * " + ANSI_ORANGE + "1" + ANSI_RESET + " Field");
-        System.out.println("  * " + ANSI_ORANGE + "5" + ANSI_RESET + " Crop Rows");
-        System.out.println("  * " + ANSI_ORANGE + "4" + ANSI_RESET + " Chicken Coops");
-        System.out.println("  * " + ANSI_ORANGE + "15" + ANSI_RESET + " Chickens");
-        System.out.println("  * " + ANSI_ORANGE + "3" + ANSI_RESET + " Stables");
-        System.out.println("  * " + ANSI_ORANGE + "10" + ANSI_RESET + " Horses");
-        System.out.println("  * " + ANSI_ORANGE + "2" + ANSI_RESET + " Farm Vehicles");
+        System.out.println("  * " + ANSI_LIGHT_PURPLE + "1" + ANSI_RESET + " Field");
+        System.out.println("  * " + ANSI_LIGHT_PURPLE + "5" + ANSI_RESET + " Crop Rows");
+        System.out.println("  * " + ANSI_LIGHT_PURPLE + "3" + ANSI_RESET + " Types of Crops:");
+        System.out.println("       * " + ANSI_RED + "Tomatoes" + ANSI_RESET);
+        System.out.println("       * " + ANSI_YELLOW + "Corn" + ANSI_RESET);
+        System.out.println("       * " + ANSI_GREEN + "Spinach" + ANSI_RESET);
+        System.out.println("  * " + ANSI_LIGHT_PURPLE + "4" + ANSI_RESET + " Chicken Coops with " + ANSI_LIGHT_PURPLE + "15" + ANSI_RESET + " Chickens:");
+
+        String[] chickenNames = {
+            "Henny", "Penny", "Ferdinand", "Chuckles",
+            "Peck", "Clucksworth", "Nugget", "Feathers",
+            "Squawk", "Rosie", "Peeper", "Scruffy",
+            "Squabbles", "Pip", "Chirp"
+        };
+        for (int i = 0; i < chickenNames.length; i += 2) {
+            String first = String.format("     * %-30s", ANSI_BROWN + chickenNames[i] + ANSI_RESET);
+            String second = (i + 1 < chickenNames.length)
+                ? String.format("* %-30s", ANSI_BROWN + chickenNames[i + 1] + ANSI_RESET)
+                : "";
+            System.out.println(first + second);
+        }
+
+        System.out.println("  * " + ANSI_LIGHT_PURPLE + "3" + ANSI_RESET + " Stables with " + ANSI_LIGHT_PURPLE + "10" + ANSI_RESET + " Horses:");
+
+        // Print horse names, two per line
+        String[] horseNames = {
+            "Jasper", "Spirit", "Daisy", "Lucky", "Pegasus", "Shadow", "Thunder",
+            "Blaze", "Comet", "Star"
+        };
+        for (int i = 0; i < horseNames.length; i += 2) {
+            String first = String.format("     * %-30s", ANSI_BROWN + horseNames[i] + ANSI_RESET);
+            String second = (i + 1 < horseNames.length)
+                ? String.format("* %-30s", ANSI_BROWN + horseNames[i + 1] + ANSI_RESET)
+                : "";
+            System.out.println(first + second);
+        }
+        System.out.println("  * " + ANSI_LIGHT_PURPLE + "2" + ANSI_RESET + " Farm Vehicles:");
+        System.out.println("       * Tractor" + ANSI_RESET);
+        System.out.println("       * CropDuster" + ANSI_RESET);
         System.out.println("\n" + ANSI_BLUE + "Froilan " + ANSI_RESET + "is the Farmer" + " and " + ANSI_MAGENTA + "Froilanda " + ANSI_RESET + "is the Pilot.");
         System.out.println("\n" + ANSI_LIGHT_PURPLE + "Enjoy their weekly routine!" + ANSI_RESET);
         System.out.println("\n\n" + ANSI_WHITE + "--- Press Enter to begin the week ---" + ANSI_RESET);

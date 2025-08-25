@@ -20,6 +20,7 @@ class MorningRoutineTest extends BaseFarmtest { // Fixed: was "BaseFarmtest"
     @DisplayName("Morning routine should include horse riding section")
     void testMorningRoutineIncludesHorseRiding() {
         farmSimulation.runMorningRoutine();
+<<<<<<< HEAD
         String output = getOutput();
         
         // Check for sections and messages that don't have color codes
@@ -29,12 +30,20 @@ class MorningRoutineTest extends BaseFarmtest { // Fixed: was "BaseFarmtest"
         // Check for completion message (may have color codes)
         assertTrue(output.contains("Morning rides complete!"),
             "Should contain 'Morning rides complete!' but output was: " + output);
+=======
+
+        assertOutputContains(
+                "--- Horse Riding ---",
+                "Froilan and Froilanda head out to ride the horses!",
+                "Morning rides complete!");
+>>>>>>> d114606762ffc9dc2be139cb2994da1efeac1de6
     }
 
     @Test
     @DisplayName("Morning routine should include horse feeding section")
     void testMorningRoutineIncludesHorseFeeding() {
         farmSimulation.runMorningRoutine();
+<<<<<<< HEAD
         String output = getOutput();
         
         // Check for sections (these don't have color codes)
@@ -44,12 +53,20 @@ class MorningRoutineTest extends BaseFarmtest { // Fixed: was "BaseFarmtest"
         // Check for completion message (may have color codes)
         assertTrue(output.contains("Feeding complete!"), 
             "Should contain 'Feeding complete!' but output was: " + output);
+=======
+
+        assertOutputContains(
+                "--- Feeding Horses ---",
+                "Froilan and Froilanda head out to feed the horses!",
+                "Feeding complete!");
+>>>>>>> d114606762ffc9dc2be139cb2994da1efeac1de6
     }
 
     @Test
     @DisplayName("Morning routine should alternate riders for horses")
     void testMorningRoutineAlternatesRiders() {
         farmSimulation.runMorningRoutine();
+<<<<<<< HEAD
         String output = getOutput();
         
         // Check for mounting and dismounting actions (these may have color codes around names)
@@ -59,13 +76,22 @@ class MorningRoutineTest extends BaseFarmtest { // Fixed: was "BaseFarmtest"
         // Check that both riders are mentioned
         assertTrue(output.contains("Froilan") && output.contains("Froilanda"),
             "Should mention both Froilan and Froilanda");
+=======
+        String output = getOutput().toLowerCase();
+        output = output.replaceAll("\u001B\\[[;\\d]*m", "");
+
+        assertTrue(output.contains("froilan mounts"), "Output should contain 'Froilan mounts'");
+        assertTrue(output.contains("froilanda mounts"), "Output should contain 'Froilanda mounts'");
+        assertTrue(output.contains("froilan dismounts"), "Output should contain 'Froilan dismounts'");
+        assertTrue(output.contains("froilanda dismounts"), "Output should contain 'Froilanda dismounts'");
+>>>>>>> d114606762ffc9dc2be139cb2994da1efeac1de6
     }
 
     @Test
     @DisplayName("Morning routine should feed horses with corn")
     void testMorningRoutineFeedsHorses() {
         farmSimulation.runMorningRoutine();
-        
+
         assertOutputContains("are feeding");
     }
 
@@ -74,15 +100,16 @@ class MorningRoutineTest extends BaseFarmtest { // Fixed: was "BaseFarmtest"
     void testMorningRoutineFormatting() {
         farmSimulation.runMorningRoutine();
         String output = getOutput();
-        
+
         // Check for proper section dividers
         assertTrue(output.contains("------------------------"));
-        
+
         // Check that both main sections are present
         assertTrue(output.contains("--- Horse Riding ---"));
         assertTrue(output.contains("--- Feeding Horses ---"));
     }
 
+<<<<<<< HEAD
     @Test
     @DisplayName("Morning routine should handle all horses")
     void testMorningRoutineHandlesAllHorses() {
@@ -112,19 +139,28 @@ class MorningRoutineTest extends BaseFarmtest { // Fixed: was "BaseFarmtest"
         assertTrue(froilanMounts >= 4, "Froilan should mount several horses");
         assertTrue(froilandaMounts >= 4, "Froilanda should mount several horses");
     }
+=======
+>>>>>>> d114606762ffc9dc2be139cb2994da1efeac1de6
 
     @Test
     @DisplayName("Morning routine should include horse names")
     void testMorningRoutineIncludesHorseNames() {
         farmSimulation.runMorningRoutine();
         String output = getOutput();
-        
+
         // Should contain some of the horse names from the predefined list
         boolean containsHorseNames = output.contains("Jasper") ||
+<<<<<<< HEAD
                                    output.contains("Spirit") ||
                                    output.contains("Daisy") ||
                                    output.contains("Lucky");
         
+=======
+                output.contains("Spirit") ||
+                output.contains("Daisy") ||
+                output.contains("Lucky");
+
+>>>>>>> d114606762ffc9dc2be139cb2994da1efeac1de6
         assertTrue(containsHorseNames, "Output should contain horse names");
     }
 }
